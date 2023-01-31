@@ -2837,3 +2837,4 @@ Caused by: java.lang.annotation.AnnotationTypeMismatchException: Incorrectly typ
 2023-02-01T02:48:16.215+05:30  INFO 23836 --- [restartedMain] c.n.d.c.doctor.DoctorRestController      :  Doctor Rest Controller Called
 2023-02-01T02:48:16.269+05:30  INFO 23836 --- [restartedMain] c.n.d.c.hospital.HospitalController      : Hospital Controller called
 2023-02-01T02:48:16.326+05:30  WARN 23836 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-01T02:48:16.479+05:30  INFO 23836 --- [restartedMain] c.nv.doctorapp.MyDoctorApp1Application   : Started MyDoctorApp1Application in 1.186 seconds (process running for 78.629)
