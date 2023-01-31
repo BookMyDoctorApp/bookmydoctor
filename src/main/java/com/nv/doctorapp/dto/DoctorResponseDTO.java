@@ -12,7 +12,6 @@ public class DoctorResponseDTO {
 	private int doctorId;
 	private String doctorName;
 	private String speciality;
-	private String hospitalName;
 	private double chargePerVisit;
 	
 }

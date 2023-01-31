@@ -40,21 +40,8 @@ public class DoctorRestController {
 		System.err.println("-------Doctor Rest Controller Called-------");
 	}
 
-	/*
-	 * @PostMapping("/add") public ResponseEntity<DoctorResponseDTO>
-	 * saveDoctor(@RequestBody Doctor doctor){
-	 * 
-	 * Doctor savedDoctor = doctorService.addDoctor(doctor);
-	 * logger.info("Doctor Saved");
-	 * 
-	 * if(savedDoctor !=null) {
-	 * 
-	 * DoctorResponseDTO dto = dtoConvertor.convertTo(savedDoctor); return new
-	 * ResponseEntity<DoctorResponseDTO>(dto,HttpStatus.OK); } return null; }
-	 */
-
 	@PostMapping("/add")
-	public ResponseEntity<DoctorResponseDTO> saveDoctor(@RequestBody Doctor doctor) {
+	public ResponseEntity<DoctorResponseDTO> saveDoctor(@RequestBody Doctor doctor) throws Exception {
 
 		Doctor savedDoctor = doctorService.addDoctor(doctor);
 		logger.info("Doctor Saved" + savedDoctor);
@@ -85,6 +72,22 @@ public class DoctorRestController {
 		Doctor savedDoctor = doctorService.getDoctorById(doctorId);
 		DoctorResponseDTO dto = dtoConvertor.convertTo(savedDoctor);
 		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
+	}
+	
+	/*@GetMapping("/custom/{location}")
+	public ResponseEntity<DoctorResponseDTO> getDoctorByLocation(@PathVariable String Location){
+		
+		Doctor savedDoctor = customRepository.getDoctorByLocation(Location);
+		DoctorResponseDTO dto = dtoConvertor.convertTo(savedDoctor);
+		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
+		
+	}*/
+	
+	@PutMapping("/getDoc/{doctorId}")
+	public String updateDoctor(@PathVariable int doctorId){
+		Doctor updatedDoctor = doctorService.getDoctorById(doctorId);
+		return updatedDoctor.toString();
+		
 	}
 	
 	@DeleteMapping("/deleteDoctor/{doctorId}")

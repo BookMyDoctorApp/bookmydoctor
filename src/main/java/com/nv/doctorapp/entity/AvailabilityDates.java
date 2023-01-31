@@ -1,7 +1,5 @@
 package com.nv.doctorapp.entity;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AvailabilityDates {
 
-	private LocalDate fromDate;
-	private LocalDate toDate;
+	private String fromDay;
+	private String toDay;
 
 }

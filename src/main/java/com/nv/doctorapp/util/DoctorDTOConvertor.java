@@ -11,7 +11,7 @@ public class DoctorDTOConvertor {
 	public DoctorResponseDTO convertTo(Doctor doctor) {
 
 		return new DoctorResponseDTO(doctor.getDoctorId(), doctor.getDoctorName(), doctor.getSpeciality(),
-				doctor.getHospitalName(), doctor.getChargePerVisit());
+				doctor.getChargePerVisit());
 
 	}
 }

@@ -1,12 +1,11 @@
 package com.nv.doctorapp.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Doctor;
-import com.nv.doctorapp.exception.InvalidInputException;
+import com.nv.doctorapp.exception.InvalidDoctorException;
 import com.nv.doctorapp.repository.IDoctorRepository;
 
 @Service
@@ -26,10 +25,17 @@ public class DoctorServiceImpl implements IDoctorService {
 	 */
 
 	@Override
-	public Doctor addDoctor(Doctor doctor) {
+	public Doctor addDoctor(Doctor doctor) throws Exception {
 
-		Doctor savedDoctor = doctorRepository.save(doctor);
-		return savedDoctor;
+		if (doctor.getDoctorName().equals("")){
+			throw new InvalidDoctorException("Invalid Doctor Name");
+		}
+		
+		if (doctor.getEmail().equals("")){
+			throw new InvalidDoctorException("Invalid Email Id");
+		}
+		
+		return doctorRepository.save(doctor);
 	}
 
 	@Override
@@ -40,8 +46,8 @@ public class DoctorServiceImpl implements IDoctorService {
 
 	@Override
 	public void removeDoctorById(int doctorId) {
-		
-		doctorRepository.deleteById(doctorId);;
+
+		doctorRepository.deleteById(doctorId);
 	}
 
 	@Override
@@ -53,7 +59,11 @@ public class DoctorServiceImpl implements IDoctorService {
 
 	@Override
 	public Doctor updateDoctor(int doctorId) {
-		return null;	
+
+		Doctor updatedDoctor = doctorRepository.getReferenceById(doctorId);
+		doctorRepository.save(updatedDoctor);
+		return updatedDoctor;
+		
 	}
 
 }
