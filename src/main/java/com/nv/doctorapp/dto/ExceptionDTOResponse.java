@@ -7,4 +7,9 @@ public class ExceptionDTOResponse {
 		
 	}
 
+	public void setErrorMsg(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

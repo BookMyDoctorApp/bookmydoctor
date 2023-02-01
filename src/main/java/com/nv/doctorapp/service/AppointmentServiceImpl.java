@@ -3,15 +3,16 @@ package com.nv.doctorapp.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Appointment;
-import com.nv.doctorapp.entity.Patient;
 import com.nv.doctorapp.repository.AppointmentRepository;
 
+@Service
 public class AppointmentServiceImpl implements AppointmentService {
 	
 	@Autowired
-	private AppointmentRepository appointmentRepository;
+	AppointmentRepository appointmentRepository;
 
 	@Override
 	public List<Appointment> getAllAppointments() {
@@ -26,9 +27,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public Appointment addAppointment(Appointment app) {
+	public Appointment addAppointment(Appointment appointment) {
 		// TODO Auto-generated method stub
-		return appointmentRepository.save(app);
+		return appointmentRepository.save(appointment);
 	}
 
 	@Override
@@ -38,16 +39,29 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public Appointment updateAppointment(int appointmentId) {
+	public Appointment updateAppointmentById(int appointmentId) {
 		// TODO Auto-generated method stub
-		return appointmentRepository.save(appointmentId);
+		return appointmentRepository.getReferenceById(appointmentId);
 	}
 
 	@Override
-	public Appointment getAppointmentByPatient(Patient patient) {
+	public List<Appointment> getAppointmentByStatus() {
 		// TODO Auto-generated method stub
-		return appointmentRepository.save(patient);
+		return appointmentRepository.findAll();
 	}
+
+	@Override
+	public List<Appointment> getAppointmentByDate() {
+		// TODO Auto-generated method stub
+		return appointmentRepository.findAll();
+	}
+
+	
+
+	
+	
+	
+	
 	
 	
 
