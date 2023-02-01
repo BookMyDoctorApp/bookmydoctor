@@ -1,4 +1,4 @@
-package com.nv.doctorapp.controller;
+package com.nv.doctorapp.controller.doctor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nv.doctorapp.dto.DoctorResponseDTO;
+import com.nv.doctorapp.dto.doctor.DoctorResponseDTO;
 import com.nv.doctorapp.entity.Doctor;
-import com.nv.doctorapp.service.IDoctorService;
-import com.nv.doctorapp.util.DoctorDTOConvertor;
+import com.nv.doctorapp.repository.doctor.IDoctorRepository;
+import com.nv.doctorapp.service.doctor.IDoctorService;
+import com.nv.doctorapp.util.doctor.DoctorDTOConvertor;
 
 @RestController
 @RequestMapping("/doctor")
@@ -40,9 +40,10 @@ public class DoctorRestController {
 		System.err.println("-------Doctor Rest Controller Called-------");
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/register")
 	public ResponseEntity<DoctorResponseDTO> saveDoctor(@RequestBody Doctor doctor) throws Exception {
 
+		System.err.println( "post mapping "+doctor);
 		Doctor savedDoctor = doctorService.addDoctor(doctor);
 		logger.info("Doctor Saved" + savedDoctor);
 
@@ -66,7 +67,7 @@ public class DoctorRestController {
 		return new ResponseEntity<List<DoctorResponseDTO>>(dtoList, HttpStatus.OK);
 	}
 	
-	@GetMapping("/getDoctor/{doctorId}")
+	@GetMapping("/id/{doctorId}")
 	public ResponseEntity<DoctorResponseDTO> getDoctorById(@PathVariable int doctorId) {
 		
 		Doctor savedDoctor = doctorService.getDoctorById(doctorId);
@@ -74,23 +75,43 @@ public class DoctorRestController {
 		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
 	}
 	
-	/*@GetMapping("/custom/{location}")
-	public ResponseEntity<DoctorResponseDTO> getDoctorByLocation(@PathVariable String Location){
+	@GetMapping("/location/{location}")
+	public ResponseEntity<List<DoctorResponseDTO>> getDoctorByLocation(@PathVariable String location){
 		
-		Doctor savedDoctor = customRepository.getDoctorByLocation(Location);
-		DoctorResponseDTO dto = dtoConvertor.convertTo(savedDoctor);
-		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
+		List<Doctor> allDoctors = doctorService.getDoctorByLocation(location);
+		List<DoctorResponseDTO> dtoObj = new ArrayList<>();
 		
-	}*/
+		for(Doctor doctor: allDoctors) {
+			dtoObj.add(dtoConvertor.convertTo(doctor));
+		}
+		
+		return new ResponseEntity<List<DoctorResponseDTO>>(dtoObj, HttpStatus.OK);
+		
+	}
 	
-	@PutMapping("/getDoc/{doctorId}")
+	@GetMapping("/speciality/{speciality}")
+	public ResponseEntity<List<DoctorResponseDTO>>getDoctorBySpeciality(@PathVariable String speciality){
+		
+		List<Doctor> allDoctors = doctorService.getDoctorBySpeciality(speciality);
+		List<DoctorResponseDTO> dto = new ArrayList<>();
+		
+		for(Doctor doctor: allDoctors) {
+			
+			dto.add(dtoConvertor.convertTo(doctor));
+		}
+		
+		return new ResponseEntity<List<DoctorResponseDTO>>(dto, HttpStatus.OK);
+		
+	}
+	
+	@PutMapping("/{doctorId}")
 	public String updateDoctor(@PathVariable int doctorId){
 		Doctor updatedDoctor = doctorService.getDoctorById(doctorId);
 		return updatedDoctor.toString();
 		
 	}
 	
-	@DeleteMapping("/deleteDoctor/{doctorId}")
+	@DeleteMapping("/{doctorId}")
 	public void removeDoctor(@PathVariable int doctorId) {
 		doctorService.removeDoctorById(doctorId);
 	}

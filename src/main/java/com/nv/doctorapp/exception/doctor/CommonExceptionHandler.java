@@ -1,4 +1,4 @@
-package com.nv.doctorapp.exception;
+package com.nv.doctorapp.exception.doctor;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.nv.doctorapp.dto.ExceptionDTOResponse;
+import com.nv.doctorapp.dto.doctor.ExceptionDTOResponse;
 
 @ControllerAdvice
 public class CommonExceptionHandler {

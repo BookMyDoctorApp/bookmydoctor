@@ -1,8 +1,8 @@
-package com.nv.doctorapp.util;
+package com.nv.doctorapp.util.doctor;
 
 import org.springframework.stereotype.Component;
 
-import com.nv.doctorapp.dto.DoctorResponseDTO;
+import com.nv.doctorapp.dto.doctor.DoctorResponseDTO;
 import com.nv.doctorapp.entity.Doctor;
 
 @Component

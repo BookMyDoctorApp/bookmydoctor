@@ -1,12 +1,12 @@
-package com.nv.doctorapp.service;
+package com.nv.doctorapp.service.doctor;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Doctor;
-import com.nv.doctorapp.exception.InvalidDoctorException;
-import com.nv.doctorapp.repository.IDoctorRepository;
+import com.nv.doctorapp.exception.doctor.InvalidDoctorException;
+import com.nv.doctorapp.repository.doctor.IDoctorRepository;
 
 @Service
 public class DoctorServiceImpl implements IDoctorService {
@@ -14,15 +14,6 @@ public class DoctorServiceImpl implements IDoctorService {
 	@Autowired
 	private IDoctorRepository doctorRepository;
 
-	/*
-	 * @Override public Doctor addDoctor(Doctor doctor) throws InvalidInputException
-	 * {
-	 * 
-	 * if(doctor != null) { if(doctor.getDoctorName().equals("")) { throw new
-	 * InvalidInputException("Doctor Name", "Doctor Name is Null"); } Doctor
-	 * savedDoctor=doctorRepository.save(doctor); return savedDoctor; } return null;
-	 * }
-	 */
 
 	@Override
 	public Doctor addDoctor(Doctor doctor) throws Exception {
@@ -66,4 +57,15 @@ public class DoctorServiceImpl implements IDoctorService {
 		
 	}
 
+	@Override
+	public List<Doctor> getDoctorByLocation(String location) {
+		
+		return doctorRepository.getDoctoyByLocation(location);
+	}
+
+	@Override
+	public List<Doctor> getDoctorBySpeciality(String speciality) {
+
+		return doctorRepository.getDoctorBySpeciality(speciality);
+	}
 }

@@ -1,4 +1,4 @@
-package com.nv.doctorapp.service;
+package com.nv.doctorapp.service.doctor;
 
 import java.util.List;
 
@@ -18,5 +18,9 @@ public interface IDoctorService {
 	public void removeDoctorById(int doctorId);
 
 	public List<Doctor> getAllDoctors();
+	
+	public List<Doctor> getDoctorByLocation(String location);
+	
+	public List<Doctor> getDoctorBySpeciality(String speciality);
 
 }

@@ -1,4 +1,4 @@
-package com.nv.doctorapp.dto;
+package com.nv.doctorapp.dto.doctor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

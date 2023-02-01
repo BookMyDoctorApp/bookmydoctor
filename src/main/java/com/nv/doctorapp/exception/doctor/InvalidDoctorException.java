@@ -1,4 +1,4 @@
-package com.nv.doctorapp.exception;
+package com.nv.doctorapp.exception.doctor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
