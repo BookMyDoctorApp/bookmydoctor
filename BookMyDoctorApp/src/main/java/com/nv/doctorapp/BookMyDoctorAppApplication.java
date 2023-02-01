@@ -1,4 +1,4 @@
-package com.training.abc;
+package com.nv.doctorapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
