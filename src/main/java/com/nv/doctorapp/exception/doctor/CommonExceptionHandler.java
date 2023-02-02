@@ -1,4 +1,4 @@
-package com.nv.doctorapp.exception;
+package com.nv.doctorapp.exception.doctor;
 
 import java.time.LocalDateTime;
 
@@ -7,14 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.nv.doctorapp.dto.ExceptionDTOResponse;
+import com.nv.doctorapp.dto.doctor.ExceptionDTOResponse;
 
 @ControllerAdvice
 public class CommonExceptionHandler {
 	
-@ExceptionHandler
+	@ExceptionHandler
 	
-	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidAppointmentException e)
+	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidDoctorException e)
 	{
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());
@@ -22,7 +22,7 @@ public class CommonExceptionHandler {
 		return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
 	}
 	
-	public ResponseEntity<ExceptionDTOResponse> invalidEmail(InvalidAppointmentException e)
+	public ResponseEntity<ExceptionDTOResponse> invalidEmail(InvalidDoctorException e)
 	{
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());

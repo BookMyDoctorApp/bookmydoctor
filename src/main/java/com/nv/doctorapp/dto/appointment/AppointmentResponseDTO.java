@@ -1,4 +1,4 @@
-package com.nv.doctorapp.dto;
+package com.nv.doctorapp.dto.appointment;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,10 +11,8 @@ public class AppointmentResponseDTO {
 	
 	
 	private int appointmentId;
-	//private Patient patient;
-	//private Doctor doctor;
 	private String date;
-	private String appointmentStatus;
+	private String status;
 	private String remark;
 	
 

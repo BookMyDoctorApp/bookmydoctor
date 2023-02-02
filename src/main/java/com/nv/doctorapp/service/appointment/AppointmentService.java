@@ -1,4 +1,4 @@
-package com.nv.doctorapp.service;
+package com.nv.doctorapp.service.appointment;
 
 import java.util.List;
 
@@ -9,14 +9,20 @@ import com.nv.doctorapp.entity.Appointment;
 @Service
 public interface AppointmentService {
 	
+	
+	
 
 	public List<Appointment> getAllAppointments();
 	public Appointment getAppointmentById(int appointmentId);
 	public Appointment addAppointment(Appointment appointment);
 	public void removeAppointmentById(int appointmentId);
 	public Appointment updateAppointmentById(int appointmentId);
-	public List<Appointment> getAppointmentByStatus();
-	public List<Appointment> getAppointmentByDate();
+	public List<Appointment> getAppointmentByStatus(String status);
+	public List<Appointment> getAppointmentByDate(String date);
+	
+	
+	
+	
 	
 	
 	

@@ -1,4 +1,4 @@
-package com.nv.doctorapp.exception;
+package com.nv.doctorapp.exception.appointment;
 
 public class InvalidAppointmentException extends Exception{
 

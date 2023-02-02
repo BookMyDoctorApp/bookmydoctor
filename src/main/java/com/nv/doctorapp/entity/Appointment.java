@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -21,28 +20,23 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int appointmentId;
 	private String date;
-	private String appointmentStatus;
+	private String status;
 	private String remark;
+	
+	
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Doctor doctor;
+	
+	
 	
 	public Appointment(Patient patient, Doctor doctor, String date,
 			String appointmentStatus, String remark) {
 		super();
 		
 		this.date = date;
-		this.appointmentStatus = appointmentStatus;
+		this.status = status;
 		this.remark = remark;
 		
 	}
-	
-	@JoinColumn(name="doctorId")
-	@OneToOne(cascade = CascadeType.ALL)
-	private Doctor doctor;
-	
-	
-	@JoinColumn(name="patientId")
-	@OneToOne(cascade = CascadeType.ALL)
-	private Patient patient;
-	
-	
 
 }

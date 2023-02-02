@@ -1,4 +1,4 @@
-package com.nv.doctorapp.controller;
+package com.nv.doctorapp.controller.appointment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nv.doctorapp.dto.AppointmentResponseDTO;
+import com.nv.doctorapp.dto.appointment.AppointmentResponseDTO;
 import com.nv.doctorapp.entity.Appointment;
-import com.nv.doctorapp.service.AppointmentService;
-import com.nv.doctorapp.util.AppointmentDTOConverter;
+import com.nv.doctorapp.service.appointment.AppointmentService;
+import com.nv.doctorapp.util.appointment.AppointmentDTOConverter;
+
 
 @RestController
 @RequestMapping("/appointment")
@@ -80,33 +81,35 @@ public class AppointmentRestController {
 		appointmentService.removeAppointmentById(appointmentId);
 	}
 	
-	@GetMapping("/byStatus/{appointmentStatus}")
-	public ResponseEntity<List<AppointmentResponseDTO>> getAppointmentByStatus() {
+	
+	@GetMapping("/byDate/{date}")
+	public ResponseEntity<List<AppointmentResponseDTO>> getAppointmentByDate(@PathVariable String date) {
 
-		List<Appointment> allAppointments = appointmentService.getAppointmentByStatus();
+		List<Appointment> allAppointments = appointmentService.getAppointmentByDate(date);
 		List<AppointmentResponseDTO> dtoList = new ArrayList<>();
 
-		for (Appointment appointmentStatus : allAppointments) {
+		for (Appointment appointment : allAppointments) {
 
-			AppointmentResponseDTO dtoObj = dtoConvertor.convertTo(appointmentStatus);
+			AppointmentResponseDTO dtoObj = dtoConvertor.convertTo(appointment);
 			dtoList.add(dtoObj);
 		}
 		return new ResponseEntity<List<AppointmentResponseDTO>>(dtoList, HttpStatus.OK);
 	}
 	
-	@GetMapping("/byDate/{date}")
-	public ResponseEntity<List<AppointmentResponseDTO>> getAppointmentByDate() {
+	@GetMapping("/byStatus/{status}")
+	public ResponseEntity<List<AppointmentResponseDTO>> getAppointmentByStatus(@PathVariable String status) {
 
-		List<Appointment> allAppointments = appointmentService.getAppointmentByDate();
+		List<Appointment> allAppointments = appointmentService.getAppointmentByStatus(status);
 		List<AppointmentResponseDTO> dtoList = new ArrayList<>();
 
-		for (Appointment date : allAppointments) {
+		for (Appointment appointment : allAppointments) {
 
-			AppointmentResponseDTO dtoObj = dtoConvertor.convertTo(date);
+			AppointmentResponseDTO dtoObj = dtoConvertor.convertTo(appointment);
 			dtoList.add(dtoObj);
 		}
 		return new ResponseEntity<List<AppointmentResponseDTO>>(dtoList, HttpStatus.OK);
 	}
+	
 	
 	
 	

@@ -1,4 +1,4 @@
-package com.nv.doctorapp.dto;
+package com.nv.doctorapp.dto.appointment;
 
 public class ExceptionDTOResponse {
 
