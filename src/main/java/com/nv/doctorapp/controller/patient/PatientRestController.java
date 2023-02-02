@@ -83,7 +83,7 @@ public class PatientRestController {
 
 		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/name/{patientName}")
 	public ResponseEntity<List<PatientResponseDTO>> getPatientByName(@PathVariable String patientName) {
 
@@ -95,15 +95,49 @@ public class PatientRestController {
 
 		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
 	}
+	@GetMapping("/age/{patientAge}")
+	public ResponseEntity<List<PatientResponseDTO>> getPatientByAge(@PathVariable String patientAge) {
+
+		List<Patient> allPatients = patientService.getPatientByAge(patientAge);
+		List<PatientResponseDTO> dtoObj = new ArrayList<>();
+
+		for (Patient patient : allPatients)
+			dtoObj.add(dtoConvertor.convertTo(patient));
+
+		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
+	}
 	
+	@GetMapping("/gender/{patientGender}")
+	public ResponseEntity<List<PatientResponseDTO>> getPatientByGender(@PathVariable String patientGender) {
+
+		List<Patient> allPatients = patientService.getPatientByGender(patientGender);
+		List<PatientResponseDTO> dtoObj = new ArrayList<>();
+
+		for (Patient patient : allPatients)
+			dtoObj.add(dtoConvertor.convertTo(patient));
+
+		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
+	}
+	
+	@GetMapping("/disease/{patientDisease}")
+	public ResponseEntity<List<PatientResponseDTO>> getPatientByDisease(@PathVariable String patientDisease) {
+
+		List<Patient> allPatients = patientService.getPatientByDisease(patientDisease);
+		List<PatientResponseDTO> dtoObj = new ArrayList<>();
+
+		for (Patient patient : allPatients)
+			dtoObj.add(dtoConvertor.convertTo(patient));
+
+		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
+	}
+
 	@PutMapping("/{patientId}")
-	public String updatePatient(@PathVariable int patientId){
+	public String updatePatient(@PathVariable int patientId) {
 		Patient updatedPatient = patientService.getPatientById(patientId);
 		return updatedPatient.toString();
 	}
-	
 
-	@DeleteMapping("/deletePatient/{patientId}")
+	@DeleteMapping("/delete/{patientId}")
 	public void removePatient(@PathVariable int patientId) {
 		patientService.removePatientDetailsById(patientId);
 	}

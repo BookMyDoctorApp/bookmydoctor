@@ -18,16 +18,17 @@ public class PatientServiceImpl implements IPatientService {
 
 	@Override
 	public Patient registerPatient(Patient patient) throws Exception {
-		
+
 		if (patient.getPatientName().equals("")) {
 			throw new InvalidPatientException("Invalid Patient Name");
 		}
-		
+
 		if (patient.getPatientCity().equals("")) {
 			throw new InvalidPatientException("Invalid City");
 		}
 
-		else return patientRepository.save(patient);
+		else
+			return patientRepository.save(patient);
 
 	}
 
@@ -57,35 +58,70 @@ public class PatientServiceImpl implements IPatientService {
 		return patientRepository.getReferenceById(patientId);
 	}
 
-	
-	  @Override 
-	  public  List<Patient> getPatientByCity(String patientCity) {
-		  
-		  List<Patient> allPatients = patientRepository.findAll();
-		  List<Patient> requiredPatients = new ArrayList<>();
-		  for(Patient obj: allPatients) {
-			  if(obj.getPatientCity().equalsIgnoreCase(patientCity)) {
-				  requiredPatients.add(obj);
-			  }
-		  }
-		  return requiredPatients;
-	  
-	  }
-	  
-	  @Override 
-	  public List<Patient> getPatientByName(String patientName) {
-	  
-		 
-		  List<Patient> allPatients = patientRepository.findAll();
-		  List<Patient> requiredPatients = new ArrayList<>();
-		  for(Patient obj: allPatients) {
-			  if(obj.getPatientName().equalsIgnoreCase(patientName)) {
-				  requiredPatients.add(obj);
-			  }
-		  }
-		  return requiredPatients;
-	  
-	  
-	  }
+	@Override
+	public List<Patient> getPatientByCity(String patientCity) {
 
+		List<Patient> allPatients = patientRepository.findAll();
+		List<Patient> requiredPatients = new ArrayList<>();
+		for (Patient obj : allPatients) {
+			if (obj.getPatientCity().equalsIgnoreCase(patientCity)) {
+				requiredPatients.add(obj);
+			}
+		}
+		return requiredPatients;
+
+	}
+
+	@Override
+	public List<Patient> getPatientByName(String patientName) {
+
+		List<Patient> allPatients = patientRepository.findAll();
+		List<Patient> requiredPatients = new ArrayList<>();
+		for (Patient obj : allPatients) {
+			if (obj.getPatientName().equalsIgnoreCase(patientName)) {
+				requiredPatients.add(obj);
+			}
+		}
+		return requiredPatients;
+
+	}
+
+	@Override
+	public List<Patient> getPatientByAge(String patientAge) {
+
+		List<Patient> allPatients = patientRepository.findAll();
+		List<Patient> requiredPatients = new ArrayList<>();
+		for (Patient obj : allPatients) {
+			if (obj.getPatientAge().equalsIgnoreCase(patientAge)) {
+				requiredPatients.add(obj);
+			}
+		}
+		return requiredPatients;
+	}
+
+	@Override
+	public List<Patient> getPatientByGender(String patientGender) {
+
+		List<Patient> allPatients = patientRepository.findAll();
+		List<Patient> requiredPatients = new ArrayList<>();
+		for (Patient obj : allPatients) {
+			if (obj.getPatientGender().equalsIgnoreCase(patientGender)) {
+				requiredPatients.add(obj);
+			}
+		}
+		return requiredPatients;
+	}
+
+	@Override
+	public List<Patient> getPatientByDisease(String patientDisease) {
+
+		List<Patient> allPatients = patientRepository.findAll();
+		List<Patient> requiredPatients = new ArrayList<>();
+		for (Patient obj : allPatients) {
+			if (obj.getPatientDisease().equalsIgnoreCase(patientDisease)) {
+				requiredPatients.add(obj);
+			}
+		}
+		return requiredPatients;
+	}
 }

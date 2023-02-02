@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.nv.doctorapp.entity.Patient;
 
 @Repository
-public interface IPatientRepository extends JpaRepository<Patient, Integer>{
+public interface IPatientRepository extends JpaRepository<Patient, Integer> {
 
-	
 }

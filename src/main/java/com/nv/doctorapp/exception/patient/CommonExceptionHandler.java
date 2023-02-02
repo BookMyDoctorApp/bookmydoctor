@@ -9,26 +9,25 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.nv.doctorapp.dto.patient.ExceptionDTOResponse;
 
-
 @ControllerAdvice
 public class CommonExceptionHandler {
-	
+
 	@ExceptionHandler
-	
-	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidPatientException e)
-	{
+
+	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidPatientException e) {
+		
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());
-		dto.setDateTime(LocalDateTime.now()+"");
-		return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
+		dto.setDateTime(LocalDateTime.now() + "");
+		return new ResponseEntity<ExceptionDTOResponse>(dto, HttpStatus.BAD_REQUEST);
 	}
-	
-	public ResponseEntity<ExceptionDTOResponse> invalidCity(InvalidPatientException e)
-	{
+
+	public ResponseEntity<ExceptionDTOResponse> invalidCity(InvalidPatientException e) {
+		
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());
-		dto.setDateTime(LocalDateTime.now()+"");
-		return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
+		dto.setDateTime(LocalDateTime.now() + "");
+		return new ResponseEntity<ExceptionDTOResponse>(dto, HttpStatus.BAD_REQUEST);
 	}
 
 }

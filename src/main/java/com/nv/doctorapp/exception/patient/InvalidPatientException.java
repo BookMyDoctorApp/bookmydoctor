@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InvalidPatientException extends Exception{
-	
+public class InvalidPatientException extends Exception {
+
 	String msg;
-	
 
 	@Override
 	public String toString() {

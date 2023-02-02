@@ -13,17 +13,25 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Patient {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int patientId;
 
 	private String patientName;
 	private String patientCity;
-
-	public Patient(String patientName, String patientCity) {
+	private String patientAge;
+	private String patientGender;
+	private String patientDisease;
+	
+	
+	public Patient(int patientId, String patientName, String patientCity, String patientAge, String patientGender,
+			String patientDisease) {
 		super();
+		this.patientId = patientId;
 		this.patientName = patientName;
 		this.patientCity = patientCity;
+		this.patientAge = patientAge;
+		this.patientGender = patientGender;
+		this.patientDisease = patientDisease;
 	}
 }
