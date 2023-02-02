@@ -75,7 +75,7 @@ public class PatientServiceImpl implements IPatientService {
 	  @Override 
 	  public List<Patient> getPatientByName(String patientName) {
 	  
-		  //return patientRepository.getPatientByName(patientName); 
+		 
 		  List<Patient> allPatients = patientRepository.findAll();
 		  List<Patient> requiredPatients = new ArrayList<>();
 		  for(Patient obj: allPatients) {

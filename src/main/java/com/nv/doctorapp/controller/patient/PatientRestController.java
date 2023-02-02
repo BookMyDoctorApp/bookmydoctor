@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -84,7 +85,7 @@ public class PatientRestController {
 	}
 	
 	@GetMapping("/name/{patientName}")
-	public ResponseEntity<List<PatientResponseDTO>> getPatientByNmae(@PathVariable String patientName) {
+	public ResponseEntity<List<PatientResponseDTO>> getPatientByName(@PathVariable String patientName) {
 
 		List<Patient> allPatients = patientService.getPatientByName(patientName);
 		List<PatientResponseDTO> dtoObj = new ArrayList<>();
@@ -94,6 +95,13 @@ public class PatientRestController {
 
 		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
 	}
+	
+	@PutMapping("/{patientId}")
+	public String updatePatient(@PathVariable int patientId){
+		Patient updatedPatient = patientService.getPatientById(patientId);
+		return updatedPatient.toString();
+	}
+	
 
 	@DeleteMapping("/deletePatient/{patientId}")
 	public void removePatient(@PathVariable int patientId) {

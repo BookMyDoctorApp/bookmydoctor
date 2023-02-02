@@ -10,8 +10,5 @@ import com.nv.doctorapp.entity.Patient;
 @Repository
 public interface IPatientRepository extends JpaRepository<Patient, Integer>{
 
-	 //List<Patient> getPatientByName(String patientName);
-
-	//List<Patient> getPatientByCity(String patientCity);
-
+	
 }

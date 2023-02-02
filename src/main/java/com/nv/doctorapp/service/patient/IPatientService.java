@@ -24,11 +24,6 @@ public interface IPatientService {
 	public List<Patient> getPatientByName(String patientName);
 
 	
-	//public List<Patient> getPatientByCity(String patientCity);
-	
-	//public List<Patient> getPatientByName(String patientName);
-
-	
 
 }
 
