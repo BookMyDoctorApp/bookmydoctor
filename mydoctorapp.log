@@ -52,3 +52,5 @@
 2023-02-02 09:33:29.769  INFO 8416 --- [restartedMain] c.n.d.c.patient.PatientRestController    :  Patient Rest Controller Called)
 2023-02-02 09:33:30.131  WARN 8416 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-02-02 09:33:30.525  INFO 8416 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Started MyDoctorAppApplication in 4.439 seconds (JVM running for 4.954)
+2023-02-02 09:34:47.591  INFO 8416 --- [http-nio-2021-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-02 09:34:47.973  INFO 8416 --- [http-nio-2021-exec-2] c.n.d.c.patient.PatientRestController    : Patient savedPatient(patientId=16, patientName=Fatima, patientCity=Hydrabad)
