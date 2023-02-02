@@ -3538,3 +3538,28 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2023-02-01T11:44:51.310+05:30  WARN 11788 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.nv.doctorapp.repository.doctor.IDoctorRepository
 2023-02-01T11:44:51.335+05:30  WARN 11788 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-02-01T11:44:51.420+05:30  INFO 11788 --- [restartedMain] c.nv.doctorapp.MyDoctorAppApplication    : Started MyDoctorAppApplication in 0.558 seconds (process running for 1200.313)
+2023-02-01T11:45:14.293+05:30  INFO 11788 --- [http-nio-2002-exec-2] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-01T11:45:14.302+05:30  WARN 11788 --- [http-nio-2002-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.nv.doctorapp.controller.doctor.DoctorRestController
+2023-02-01T14:54:37.027+05:30  INFO 11788 --- [Thread-42] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-01T14:54:37.034+05:30  INFO 11788 --- [Thread-42] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-02-01T14:54:37.057+05:30  INFO 11788 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2023-02-01T14:54:37.059+05:30  INFO 11788 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2023-02-01T14:54:37.233+05:30  INFO 11788 --- [restartedMain] c.nv.doctorapp.MyDoctorAppApplication    : Starting MyDoctorAppApplication using Java 17.0.5 with PID 11788 (C:\Sprint1App\MyDoctorApp\bin\main started by msahebra in C:\Sprint1App\MyDoctorApp)
+2023-02-01T14:54:37.233+05:30  INFO 11788 --- [restartedMain] c.nv.doctorapp.MyDoctorAppApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-02-01T14:54:37.442+05:30  INFO 11788 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-01T14:54:37.443+05:30  INFO 11788 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-01T14:54:37.458+05:30  INFO 11788 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-02-01T14:54:37.490+05:30  INFO 11788 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-01T14:54:37.493+05:30  WARN 11788 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-01T14:54:37.497+05:30  INFO 11788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2023-02-01T14:54:37.556+05:30  INFO 11788 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection org.postgresql.jdbc.PgConnection@dca174c
+2023-02-01T14:54:37.557+05:30  INFO 11788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2023-02-01T14:54:37.569+05:30  INFO 11788 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-02-01T14:54:37.610+05:30  INFO 11788 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-01T14:54:37.623+05:30  INFO 11788 --- [restartedMain] c.n.d.c.doctor.DoctorRestController      :  Doctor Rest Controller Called
+2023-02-01T14:54:37.649+05:30  WARN 11788 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.nv.doctorapp.repository.doctor.IDoctorRepository
+2023-02-01T14:54:37.661+05:30  WARN 11788 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-01T14:54:37.740+05:30  INFO 11788 --- [restartedMain] c.nv.doctorapp.MyDoctorAppApplication    : Started MyDoctorAppApplication in 0.539 seconds (process running for 12586.621)
+2023-02-01T16:10:40.691+05:30  INFO 11788 --- [http-nio-2002-exec-2] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-01T16:10:40.695+05:30  WARN 11788 --- [http-nio-2002-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.nv.doctorapp.controller.doctor.DoctorRestController
+2023-02-01T18:02:10.310+05:30  WARN 11788 --- [HikariPool-12 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Thread starvation or clock leap detected (housekeeper delta=4m29s667ms84µs999ns).

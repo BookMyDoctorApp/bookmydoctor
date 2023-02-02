@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nv.doctorapp.dto.doctor.DoctorResponseDTO;
 import com.nv.doctorapp.entity.Doctor;
-import com.nv.doctorapp.repository.doctor.IDoctorRepository;
 import com.nv.doctorapp.service.doctor.IDoctorService;
 import com.nv.doctorapp.util.doctor.DoctorDTOConvertor;
 
