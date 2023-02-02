@@ -14,4 +14,5 @@ public class DoctorDTOConvertor {
 				doctor.getChargePerVisit());
 
 	}
+	
 }

@@ -8,8 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.nv.doctorapp.entity.Hospital;
 
 @Repository
-public interface IHospitalRepository extends JpaRepository<Hospital,Integer>,CustomHospitalRepository{
+public interface IHospitalRepository extends JpaRepository<Hospital,Integer>{
 
-	List<Hospital> getHospitalByCity(String city);
+	public List<Hospital> getHospitalByCity(String city);
+	
+	public List<Hospital> getHospitalByState(String state);
+	
 
 }

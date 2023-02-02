@@ -73,15 +73,7 @@ public class DoctorRestController {
 		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
 	}
 	
-	/*@GetMapping("/custom/{location}")
-	public ResponseEntity<DoctorResponseDTO> getDoctorByLocation(@PathVariable String Location){
-		
-		Doctor savedDoctor = customRepository.getDoctorByLocation(Location);
-		DoctorResponseDTO dto = dtoConvertor.convertTo(savedDoctor);
-		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
-		
-	}*/
-	
+
 	@PutMapping("/getDoc/{doctorId}")
 	public String updateDoctor(@PathVariable int doctorId){
 		Doctor updatedDoctor = doctorService.getDoctorById(doctorId);
@@ -89,8 +81,38 @@ public class DoctorRestController {
 		
 	}
 	
+
+	
 	@DeleteMapping("/deleteDoctor/{doctorId}")
 	public void removeDoctor(@PathVariable int doctorId) {
 		doctorService.removeDoctorById(doctorId);
 	}
+	
+	
+	
+	@PutMapping("/{doctorId}/hospital/{hospitalId}")
+	public ResponseEntity<DoctorResponseDTO>updateHospitalByDoctorId(@PathVariable int doctorId, @PathVariable int hospitalId)
+	{
+		Doctor updatedDoctor = doctorService.updateHospitalByDoctorId(doctorId,hospitalId);
+		if(updatedDoctor!=null) {
+			DoctorResponseDTO dto = dtoConvertor.convertTo(updatedDoctor);
+			return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
+		}
+		return null;
+	}
+	
+	@GetMapping("/Id/{doctorId}")
+	public ResponseEntity<DoctorResponseDTO>getDoctorById1(@PathVariable int doctorId){
+		Doctor savedDoctor=doctorService.getDoctorById(doctorId);
+		DoctorResponseDTO dto = dtoConvertor.convertTo(savedDoctor);
+		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
+	
+	}
+	
+	
+	
+	
+	
+	
+	
 }

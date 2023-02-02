@@ -15,9 +15,4 @@ public class HospitalDTOConvertor {
 		
 	}
 
-	/*public static HospitalDTO getHospitalDTO(Hospital hospitalFromDB) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-	
 }

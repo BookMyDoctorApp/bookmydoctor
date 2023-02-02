@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Hospital;
+import com.nv.doctorapp.exception.hospital.InvalidInputException;
 import com.nv.doctorapp.repository.hospital.IHospitalRepository;
 
 @Service
@@ -15,10 +16,19 @@ public class HospitalServiceImpl implements IHospitalService{
 	IHospitalRepository ihospitalRepository;
 	
 	@Override
-	public Hospital addHospital(Hospital hospital) {
+	public Hospital addHospital(Hospital hospital) throws Exception {
 		
-		Hospital savedHospital = ihospitalRepository.save(hospital);
-		return savedHospital;
+		if(hospital.getHospitalName().equals("")) {
+			
+			throw new InvalidInputException("Name cannot be null");
+		}
+		
+		if(hospital.getCity().equals("")) {
+			
+			throw new InvalidInputException("Invalid City");
+		}
+		
+		return ihospitalRepository.save(hospital);
 	}
 	
 	@Override
@@ -30,47 +40,41 @@ public class HospitalServiceImpl implements IHospitalService{
 	@Override
 	public void deleteHospitalById(int hospitalId) {
 		
-		ihospitalRepository.deleteById(hospitalId);
+		if(hospitalId==0) {
+			throw new NullPointerException("Invalid Id");
+		}
+		
+		else ihospitalRepository.deleteById(hospitalId);
 	}
 	
 	@Override
 	public Hospital updateHospitalById(int hospitalId) {
 		
+		if(hospitalId==0) {
+			throw new NullPointerException("Invalid Id");
+		}
 	
 		Hospital updatedHospital=ihospitalRepository.getReferenceById(hospitalId);
 		ihospitalRepository.save(updatedHospital);
 		return updatedHospital;
 	}
 
+
 	@Override
-	public Hospital getHospitalByName(String hospitalName) {
+	public Hospital getHospitalById(int hospitalRating) {
+		Hospital savedHospital=ihospitalRepository.getReferenceById(hospitalRating);
+		return savedHospital;
+	}
+	
+	@Override
+	public List<Hospital> getHospitalByState(String state) {
 		
-		//return ihospitalRepository.getHospitalByName(hospitalName);
-		return null;
+		return ihospitalRepository.getHospitalByState(state);
 	}
 
 	@Override
 	public List<Hospital> getHospitalByCity(String city) {
 		
-		//return ihospitalRepository.getHopitalByCity(city);
-		return null;
-	}
-
-	@Override
-	public Hospital getHospitalById(int hospitalRating) {
-		Hospital savedHospital=ihospitalRepository.getReferenceById(hospitalRating);
-		return null;
-	}
-
-	@Override
-	public Hospital getCity(String city) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Hospital getHospitalByRating(int hospitalRating) {
-		// TODO Auto-generated method stub
-		return null;
+		return ihospitalRepository.getHospitalByCity(city) ;
 	}
 }

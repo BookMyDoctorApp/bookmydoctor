@@ -19,7 +19,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.nv.doctorapp.dto.hospital.HospitalDTO;
 import com.nv.doctorapp.entity.Hospital;
-import com.nv.doctorapp.repository.hospital.CustomHospitalRepository;
+
 import com.nv.doctorapp.service.hospital.IHospitalService;
 import com.nv.doctorapp.util.hospital.HospitalDTOConvertor;
 
@@ -36,9 +36,7 @@ public class HospitalController {
 	@Autowired
 	HospitalDTOConvertor dtoConvertor;
 	
-	@Autowired
-	CustomHospitalRepository customRepository;
-
+	
 	public HospitalController() {
 		logger.info("Hospital Controller called");
 		System.err.println("Hospital Rest Controller called");
@@ -46,7 +44,7 @@ public class HospitalController {
 	}
 
 	@PostMapping("/add")
-	public ResponseEntity<HospitalDTO> saveHospital(@RequestBody Hospital hospital) {
+	public ResponseEntity<HospitalDTO> saveHospital(@RequestBody Hospital hospital) throws Exception{
 		Hospital savedHospital = iHospitalService.addHospital(hospital);
 		logger.info("Hospital Saved" + savedHospital);
 
@@ -78,8 +76,11 @@ public class HospitalController {
 	}
 
 	
-	  @GetMapping("/getHospitalById/{hospitalId}") 
-	  public ResponseEntity<HospitalDTO>getHospitalByRating(@PathVariable int hospitalId){
+	  @GetMapping("/id/{hospitalId}") 
+	  
+	  
+	  public ResponseEntity<HospitalDTO> getHospitalById(@PathVariable int hospitalId){
+		  
 		  
 		Hospital savedHospital =iHospitalService.getHospitalById(hospitalId);
 		HospitalDTO dto = dtoConvertor.convertTo(savedHospital);
@@ -88,69 +89,38 @@ public class HospitalController {
 	  }	
 	  
 	  @PutMapping("/getHospital/{hospitalId}")
-		public String updateHospital(@PathVariable int hospitalId)
+		public String updateHospital(@PathVariable int hospitalId) throws Exception
 		{
-			Hospital updatedHospital = iHospitalService.getHospitalById(hospitalId);
+			Hospital updatedHospital = iHospitalService.updateHospitalById(hospitalId);
 			return updatedHospital.toString();
 		}
-	  /*
-	  @GetMapping("/getHospital/{city}")
 	  
-	  public ResponseEntity<List<HospitalDTO>> getHospitalByCity(){
-		  List<Hospital> allHospitalInDB = iHospitalService.getallHospital();
-		  List<HospitalDTO> dtoList=new ArrayList<>();
-		  for(Hospital hospital: allHospitalInDB)
+	  @GetMapping("/city/{city}")
+	  public ResponseEntity<List<HospitalDTO>>getHospitalByCity(@PathVariable String city){
+		  List<Hospital> allHospitals = iHospitalService.getHospitalByCity(city);
+		  List<HospitalDTO> dto=new ArrayList<>();
+		  for(Hospital hospital: allHospitals)
 		  {
-			  HospitalDTO dtoObj = dtoConvertor.convertTo(hospital);
-			  dtoList.add(dtoObj);
+			  dto.add(dtoConvertor.convertTo(hospital));
 		  }
 		  
-		  
-		  return new ResponseEntity<List<HospitalDTO>>(dtoList,HttpStatus.OK);
+		  return new ResponseEntity<List<HospitalDTO>>(dto, HttpStatus.OK);
 		  
 	  }
 	  
-	 ------- @GetMapping("/getHospitalByCity/")
-	  public  void getHospitalByCity(@PathVariable String city) {
-		  List<Hospital> allHospitalInDB = customRepository.getHospitalByCity(city);
-		  List<HospitalDTO> dtoList=new ArrayList<>();
-		  for(Hospital hospital: allHospitalInDB)
+	  @GetMapping("/state/{state}")
+	  public ResponseEntity<List<HospitalDTO>>getHospitalByState(@PathVariable String state){
+		  List<Hospital> allHospitals = iHospitalService.getHospitalByState(state);
+		  List<HospitalDTO> dtoObj=new ArrayList<>();
+		  for(Hospital hospital: allHospitals)
 		  {
-			  HospitalDTO dtoObj = dtoConvertor.convertTo(hospital);
-			  dtoList.add(dtoObj);
+			  dtoObj.add(dtoConvertor.convertTo(hospital));
 		  }
 		  
-	  }
-	 //
-	/*  @GetMapping("/getHospital/{city}")
-	  public ResponseEntity<List<HospitalDTO>> getHospitalByCity()
-	  {
-		
-		  List<Hospital> allHospitalInDB = iHospitalService.getallHospital();
-		  List<HospitalDTO> dtoList = new ArrayList<>();
-			for (Hospital hospital : allHospitalInDB) {
-				HospitalDTO dtoObj = dtoConvertor.convertTo(city);
-				dtoList.add(dtoObj);
-			}
-		  return new ResponseEntity<List<HospitalDTO>>(dtoList,HttpStatus.OK);
+		  return new ResponseEntity<List<HospitalDTO>>(dtoObj, HttpStatus.OK);
 		  
-	  }*/
+	  }
 	  
-	  
-	  /*
-	  @GetMapping("/getHospital/{city}")
-	  public String getHospitalByCity(@PathVariable String city)
-		{
-		// List<Hospital> getAllCity = iHospitalService.getallHospital();
-		 //---if(getAllCity.equals(city)) {
-			// return getAllCity.toString();
-		  System.out.print("city"+city);
-		  return null;
-	
-		}
-	  /*else {
-		  return "error : - "+getAllCity.toString()+" ";
-	  }*/
 	
 		
 	  

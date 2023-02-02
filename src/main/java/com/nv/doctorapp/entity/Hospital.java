@@ -29,16 +29,20 @@ public class Hospital {
 	// private list<doctor>
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "DoctorDetails") 
+	@JoinColumn(name = "HospitalId") 
 	private List<Doctor> doctors;
 	
-	
-	public Hospital(String hospitalName, String city, String state, String address, int hospitalRating) {
+	public Hospital(int hospitalId, String HospitalName ,String city, String state, String address, int hospitalRating) 
+	{
 		super();
-		this.hospitalName = hospitalName;
+		this.hospitalId = hospitalId;
+		this.hospitalName=hospitalName;
 		this.city = city;
 		this.state = state;
 		this.address = address;
 		this.hospitalRating = hospitalRating;
 	}
+	
+	
+	
 }
