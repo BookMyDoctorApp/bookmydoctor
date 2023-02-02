@@ -1,0 +1,54 @@
+2023-02-02 00:00:28.141  INFO 7252 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Starting MyDoctorAppApplication using Java 17.0.5 on LIN59020017 with PID 7252 (C:\Sprint1App\MyDoctorApp\bin\main started by shreyabd in C:\Sprint1App\MyDoctorApp)
+2023-02-02 00:00:28.147  INFO 7252 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 00:00:29.396  INFO 7252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-02 00:00:29.397  INFO 7252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-02 00:00:29.488  INFO 7252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-02 00:00:29.685  INFO 7252 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-02 00:00:29.753  INFO 7252 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-02 00:00:29.938  INFO 7252 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-02 00:00:30.053  INFO 7252 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-02 00:00:30.280  INFO 7252 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-02 00:00:30.302  INFO 7252 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-02-02 00:00:30.835  INFO 7252 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-02 00:00:30.848  INFO 7252 --- [restartedMain] c.n.d.c.patient.PatientRestController    :  Patient Rest Controller Called)
+2023-02-02 00:00:31.081  WARN 7252 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 00:00:31.373  INFO 7252 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Started MyDoctorAppApplication in 3.505 seconds (JVM running for 4.183)
+2023-02-02 00:00:45.025  INFO 7252 --- [http-nio-2021-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-02 00:02:33.903  INFO 7252 --- [http-nio-2021-exec-9] c.n.d.c.patient.PatientRestController    : Patient savedPatient(patientId=14, patientName=Mrunal, patientCity=Delhi)
+2023-02-02 00:02:59.024  INFO 7252 --- [http-nio-2021-exec-10] c.n.d.c.patient.PatientRestController    : Patient savedPatient(patientId=15, patientName=Fatima, patientCity=Hydrabad)
+2023-02-02 00:03:24.863  WARN 7252 --- [http-nio-2021-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2023-02-02 00:09:52.603  INFO 7252 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-02 00:09:52.606  INFO 7252 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-02-02 00:09:52.623  INFO 7252 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-02 00:09:52.630  INFO 7252 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-02 00:09:52.719  INFO 7252 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Starting MyDoctorAppApplication using Java 17.0.5 on LIN59020017 with PID 7252 (C:\Sprint1App\MyDoctorApp\bin\main started by shreyabd in C:\Sprint1App\MyDoctorApp)
+2023-02-02 00:09:52.720  INFO 7252 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 00:09:52.998  INFO 7252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-02 00:09:52.998  INFO 7252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-02 00:09:53.023  INFO 7252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-02 00:09:53.074  INFO 7252 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-02 00:09:53.081  INFO 7252 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-02-02 00:09:53.181  INFO 7252 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-02-02 00:09:53.182  INFO 7252 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-02-02 00:09:53.214  INFO 7252 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-02 00:09:53.220  INFO 7252 --- [restartedMain] c.n.d.c.patient.PatientRestController    :  Patient Rest Controller Called)
+2023-02-02 00:09:53.278  WARN 7252 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 00:09:53.363  INFO 7252 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Started MyDoctorAppApplication in 0.673 seconds (JVM running for 566.255)
+2023-02-02 00:13:21.755  INFO 7252 --- [RMI TCP Connection(22)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-02 00:13:21.759  INFO 7252 --- [RMI TCP Connection(22)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-02-02 00:13:21.761  INFO 7252 --- [RMI TCP Connection(22)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-02-02 09:33:26.458  INFO 8416 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Starting MyDoctorAppApplication using Java 17.0.5 on LIN59020017 with PID 8416 (C:\Sprint1App\MyDoctorApp\bin\main started by SHREYABD in C:\Sprint1App\MyDoctorApp)
+2023-02-02 09:33:26.460  INFO 8416 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 09:33:28.149  INFO 8416 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-02 09:33:28.149  INFO 8416 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-02 09:33:28.230  INFO 8416 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-02 09:33:28.481  INFO 8416 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-02 09:33:28.535  INFO 8416 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-02 09:33:28.736  INFO 8416 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-02 09:33:28.843  INFO 8416 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-02 09:33:29.040  INFO 8416 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-02 09:33:29.059  INFO 8416 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-02-02 09:33:29.748  INFO 8416 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-02 09:33:29.769  INFO 8416 --- [restartedMain] c.n.d.c.patient.PatientRestController    :  Patient Rest Controller Called)
+2023-02-02 09:33:30.131  WARN 8416 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 09:33:30.525  INFO 8416 --- [restartedMain] com.nv.doctorapp.MyDoctorAppApplication  : Started MyDoctorAppApplication in 4.439 seconds (JVM running for 4.954)
