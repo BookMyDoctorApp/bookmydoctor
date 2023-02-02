@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="appointment")
+@Table(name="appointmentId")
 public class Appointment {
 	
 	@Id
@@ -24,19 +25,29 @@ public class Appointment {
 	private String remark;
 	
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="doctorId")
 	private Doctor doctor;
 	
-	
-	
-	public Appointment(Patient patient, Doctor doctor, String date,
-			String appointmentStatus, String remark) {
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="patientId")
+	private Patient patient;
+
+	public Appointment(int appointmentId, String date, String status, String remark, Doctor doctor, Patient patient) {
 		super();
-		
+		this.appointmentId = appointmentId;
 		this.date = date;
 		this.status = status;
 		this.remark = remark;
+		this.doctor = doctor;
+		this.patient = patient;
+	}
+	
+	
+	
+	
+	
 		
 	}
 
-}
+

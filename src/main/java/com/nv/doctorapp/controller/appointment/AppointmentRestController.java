@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -74,13 +75,16 @@ public class AppointmentRestController {
 		return new ResponseEntity<AppointmentResponseDTO>(dto, HttpStatus.OK);
 	}
 
-	
-
 	@DeleteMapping("/deleteAppointment/{appointmentId}")
 	public void removeAppointment(@PathVariable int appointmentId) {
 		appointmentService.removeAppointmentById(appointmentId);
 	}
 	
+	@PutMapping("/{appointmenttId}")
+	public String updatePatient(@PathVariable int patientId) {
+		Appointment updatedAppointment = appointmentService.getAppointmentById(patientId);
+		return updatedAppointment.toString();
+	}
 	
 	@GetMapping("/byDate/{date}")
 	public ResponseEntity<List<AppointmentResponseDTO>> getAppointmentByDate(@PathVariable String date) {

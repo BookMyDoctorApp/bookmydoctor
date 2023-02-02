@@ -47,12 +47,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public Appointment updateAppointmentById(int appointmentId) {
-		// TODO Auto-generated method stub
-		return appointmentRepository.getReferenceById(appointmentId);
-	}
-
-	@Override
 	public List<Appointment> getAppointmentByStatus(String status) {
 		// TODO Auto-generated method stub
 		return appointmentRepository.getAppointmentByStatus(status);
@@ -62,6 +56,12 @@ public class AppointmentServiceImpl implements AppointmentService {
 	public List<Appointment> getAppointmentByDate(String date) {
 		// TODO Auto-generated method stub
 		return appointmentRepository.getAppointmentByDate(date);
+	}
+
+	@Override
+	public Appointment updateAppointmentById(int appointmentId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
