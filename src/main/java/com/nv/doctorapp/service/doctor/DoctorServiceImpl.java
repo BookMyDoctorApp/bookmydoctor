@@ -1,5 +1,6 @@
 package com.nv.doctorapp.service.doctor;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,15 @@ public class DoctorServiceImpl implements IDoctorService {
 
 		return doctorRepository.findAll();
 	}
+	
+	@Override
+	public Doctor updateDoctor(int doctorId) {
+
+		Doctor updatedDoctor = doctorRepository.getReferenceById(doctorId);
+		doctorRepository.save(updatedDoctor);
+		return updatedDoctor;
+		
+	}
 
 	@Override
 	public void removeDoctorById(int doctorId) {
@@ -49,14 +59,22 @@ public class DoctorServiceImpl implements IDoctorService {
 	}
 
 	@Override
-	public Doctor updateDoctor(int doctorId) {
-
-		Doctor updatedDoctor = doctorRepository.getReferenceById(doctorId);
-		doctorRepository.save(updatedDoctor);
-		return updatedDoctor;
+	public List<Doctor> getDoctorByAvailability(String searchfromDay, String searchtoDay) {
 		
+		List<Doctor> allDoctors = doctorRepository.findAll();
+		List<Doctor> allDoctorsByAvailability = new ArrayList<>();
+		
+		for(Doctor doctor: allDoctors) {
+			String fromDay = doctor.getAvailabilityDates().getFromDay();
+			String toDay = doctor.getAvailabilityDates().getToDay();
+			
+			if(fromDay.equals(searchfromDay)&& toDay.equals(searchtoDay)) {
+				allDoctorsByAvailability.add(doctor);
+			}
+		}
+		return allDoctorsByAvailability;
 	}
-
+	
 	@Override
 	public List<Doctor> getDoctorByLocation(String location) {
 		

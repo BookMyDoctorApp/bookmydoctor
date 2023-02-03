@@ -74,6 +74,29 @@ public class DoctorRestController {
 		return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
 	}
 	
+	@PutMapping("/{doctorId}")
+	public String updateDoctor(@PathVariable int doctorId){
+		Doctor updatedDoctor = doctorService.getDoctorById(doctorId);
+		return updatedDoctor.toString();
+		
+	}
+	
+	@DeleteMapping("/{doctorId}")
+	public void removeDoctor(@PathVariable int doctorId) {
+		doctorService.removeDoctorById(doctorId);
+	}
+	
+	@GetMapping("/availability/{fromDay}/{toDay}")
+	public ResponseEntity<List<DoctorResponseDTO>> getDoctorByAvailability(@PathVariable String fromDay, @PathVariable String toDay){
+		List<Doctor> allDoctors = doctorService.getDoctorByAvailability(fromDay, toDay);
+		List<DoctorResponseDTO> dto = new ArrayList<>();
+		for(Doctor doctor: allDoctors) {
+			DoctorResponseDTO dtoObj = dtoConvertor.convertTo(doctor);
+			dto.add(dtoObj);
+		}
+		return new ResponseEntity<List<DoctorResponseDTO>>(dto,HttpStatus.OK);
+	}
+	
 	@GetMapping("/location/{location}")
 	public ResponseEntity<List<DoctorResponseDTO>> getDoctorByLocation(@PathVariable String location){
 		
@@ -103,15 +126,4 @@ public class DoctorRestController {
 		
 	}
 	
-	@PutMapping("/{doctorId}")
-	public String updateDoctor(@PathVariable int doctorId){
-		Doctor updatedDoctor = doctorService.getDoctorById(doctorId);
-		return updatedDoctor.toString();
-		
-	}
-	
-	@DeleteMapping("/{doctorId}")
-	public void removeDoctor(@PathVariable int doctorId) {
-		doctorService.removeDoctorById(doctorId);
-	}
 }

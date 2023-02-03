@@ -10,14 +10,16 @@ import com.nv.doctorapp.entity.Doctor;
 public interface IDoctorService {
 
 	public Doctor addDoctor(Doctor doctor)throws Exception;
+	
+	public List<Doctor> getAllDoctors();
 
 	public Doctor updateDoctor(int doctorId);
-
-	public Doctor getDoctorById(int doctorId);
-
+	
 	public void removeDoctorById(int doctorId);
 
-	public List<Doctor> getAllDoctors();
+	public Doctor getDoctorById(int doctorId);
+	
+	public List<Doctor> getDoctorByAvailability(String fromDay, String toDay);
 	
 	public List<Doctor> getDoctorByLocation(String location);
 	
