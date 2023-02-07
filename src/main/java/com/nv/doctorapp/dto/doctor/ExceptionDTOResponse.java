@@ -1,4 +1,4 @@
-package com.nv.doctorapp.dto.patient;
+package com.nv.doctorapp.dto.doctor;
 
 import lombok.Data;
 
@@ -7,5 +7,4 @@ public class ExceptionDTOResponse {
 
 	private String errorMsg;
 	private String dateTime;
-
 }

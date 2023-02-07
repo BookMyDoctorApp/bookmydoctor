@@ -19,12 +19,11 @@ public class Patient {
 
 	private String patientName;
 	private String patientCity;
-	private String patientAge;
+	private int patientAge;
 	private String patientGender;
 	private String patientDisease;
 	
-	
-	public Patient(int patientId, String patientName, String patientCity, String patientAge, String patientGender,
+	public Patient(int patientId, String patientName, String patientCity, int patientAge, String patientGender,
 			String patientDisease) {
 		super();
 		this.patientId = patientId;
@@ -34,4 +33,7 @@ public class Patient {
 		this.patientGender = patientGender;
 		this.patientDisease = patientDisease;
 	}
+
+	
 }
+	

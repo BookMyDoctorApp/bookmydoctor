@@ -36,7 +36,7 @@ public class PatientRestController {
 
 	public PatientRestController() {
 		logger.info(" Patient Rest Controller Called)");
-		System.out.println("----Patient Rest Controller Called----");
+		System.err.println("----Patient Rest Controller Called----");
 	}
 
 	@PostMapping("/register")
@@ -95,8 +95,9 @@ public class PatientRestController {
 
 		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
 	}
+	
 	@GetMapping("/age/{patientAge}")
-	public ResponseEntity<List<PatientResponseDTO>> getPatientByAge(@PathVariable String patientAge) {
+	public ResponseEntity<List<PatientResponseDTO>> getPatientByAge(@PathVariable int patientAge) {
 
 		List<Patient> allPatients = patientService.getPatientByAge(patientAge);
 		List<PatientResponseDTO> dtoObj = new ArrayList<>();
@@ -106,6 +107,7 @@ public class PatientRestController {
 
 		return new ResponseEntity<List<PatientResponseDTO>>(dtoObj, HttpStatus.OK);
 	}
+	
 	
 	@GetMapping("/gender/{patientGender}")
 	public ResponseEntity<List<PatientResponseDTO>> getPatientByGender(@PathVariable String patientGender) {

@@ -87,17 +87,18 @@ public class PatientServiceImpl implements IPatientService {
 	}
 
 	@Override
-	public List<Patient> getPatientByAge(String patientAge) {
+	public List<Patient> getPatientByAge(int patientAge) {
 
 		List<Patient> allPatients = patientRepository.findAll();
 		List<Patient> requiredPatients = new ArrayList<>();
 		for (Patient obj : allPatients) {
-			if (obj.getPatientAge().equalsIgnoreCase(patientAge)) {
+			if (obj.getPatientAge() == (patientAge)) {
 				requiredPatients.add(obj);
 			}
 		}
 		return requiredPatients;
 	}
+	
 
 	@Override
 	public List<Patient> getPatientByGender(String patientGender) {

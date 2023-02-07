@@ -23,10 +23,10 @@ public interface IPatientService {
 
 	public List<Patient> getPatientByName(String patientName);
 
-	public List<Patient> getPatientByAge(String patientAge);
-
 	public List<Patient> getPatientByGender(String patientGender);
 
 	public List<Patient> getPatientByDisease(String patientDisease);
+	
+	public List<Patient> getPatientByAge(int patientAge);
 	
 }

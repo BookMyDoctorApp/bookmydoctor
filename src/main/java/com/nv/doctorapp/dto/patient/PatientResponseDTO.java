@@ -13,7 +13,7 @@ public class PatientResponseDTO {
 	private int patientId;
 	private String patientName;
 	private String patientCity;
-	private String patientAge;
+	private int patientAge;
 	private String patientGender;
 	private String patientDisease;
 	

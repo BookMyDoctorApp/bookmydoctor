@@ -9,7 +9,7 @@ import com.nv.doctorapp.entity.Patient;
 public class PatientDTOConvertor {
 
 	public PatientResponseDTO convertTo(Patient patient) {
-		return new PatientResponseDTO(patient.getPatientId(), patient.getPatientName(), patient.getPatientCity(), patient.getPatientAge(), patient.getPatientGender(), patient.getPatientDisease());
+		return new PatientResponseDTO(patient.getPatientId(),patient.getPatientName(),patient.getPatientCity(),patient.getPatientAge(),patient.getPatientGender(),patient.getPatientDisease());
 	}
 
 }
