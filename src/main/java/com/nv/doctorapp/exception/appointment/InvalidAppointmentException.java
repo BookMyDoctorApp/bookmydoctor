@@ -2,17 +2,22 @@ package com.nv.doctorapp.exception.appointment;
 
 public class InvalidAppointmentException extends Exception{
 
-	String input;
 	String msg;
 
-	public InvalidAppointmentException(String input, String msg) {
-		super();
-		this.input = input;
-		this.msg = msg;
+	
+
+	public InvalidAppointmentException(String string) {
+		// TODO Auto-generated constructor stub
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "InvalidInputException [" + input + msg + "]";
+		return "InvalidAppointmentException [msg=" + msg + "]";
 	}
+	
+	
+
+
 }

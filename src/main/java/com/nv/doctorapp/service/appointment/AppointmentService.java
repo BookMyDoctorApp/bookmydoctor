@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Appointment;
 
+
+
 @Service
 public interface AppointmentService {
 	
@@ -16,7 +18,7 @@ public interface AppointmentService {
 	
 	public Appointment getAppointmentById(int appointmentId);
 	
-	public Appointment addAppointment(Appointment appointment);
+	public Appointment addAppointment(Appointment appointment) throws Exception;
 	
 	public void removeAppointmentById(int appointmentId);
 	

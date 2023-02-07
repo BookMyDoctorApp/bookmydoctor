@@ -1,12 +1,9 @@
 package com.nv.doctorapp.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,24 +21,19 @@ public class Appointment {
 	private String status;
 	private String remark;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="doctorId")
-	private Doctor doctor;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="patientId")
-	private Patient patient;
-
-	public Appointment(int appointmentId, String date, String status, String remark, Doctor doctor, Patient patient) {
+	public Appointment(int appointmentId, String date, String status, String remark) {
 		super();
 		this.appointmentId = appointmentId;
 		this.date = date;
 		this.status = status;
 		this.remark = remark;
-		this.doctor = doctor;
-		this.patient = patient;
+		
+		
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -49,5 +41,3 @@ public class Appointment {
 	
 		
 	}
-
-

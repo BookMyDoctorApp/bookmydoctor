@@ -15,7 +15,7 @@ public class CommonExceptionHandler1 {
 	
 @ExceptionHandler
 	
-	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidAppointmentException e)
+	public ResponseEntity<ExceptionDTOResponse> invalidDate(InvalidAppointmentException e)
 	{
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());
@@ -23,7 +23,7 @@ public class CommonExceptionHandler1 {
 		return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
 	}
 	
-	public ResponseEntity<ExceptionDTOResponse> invalidEmail(InvalidAppointmentException e)
+	public ResponseEntity<ExceptionDTOResponse> invalidStatus(InvalidAppointmentException e)
 	{
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());

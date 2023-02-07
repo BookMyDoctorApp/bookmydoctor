@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Appointment;
+import com.nv.doctorapp.exception.appointment.InvalidAppointmentException;
 import com.nv.doctorapp.repository.appointment.AppointmentRepository;
-import com.nv.doctorapp.repository.doctor.IDoctorRepository;
 
 
 @Service
@@ -16,14 +16,15 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Autowired
 	AppointmentRepository appointmentRepository;
 	
-	@Autowired 
-	IDoctorRepository idoctorRepository;
+	//@Autowired 
+	//IDoctorRepository idoctorRepository;
 	
 //	@Autowired 
 //	CustomAppointmentRepository customAppointmentRepository;
 
 	@Override
 	public List<Appointment> getAllAppointments() {
+
 		// TODO Auto-generated method stub
 		return appointmentRepository.findAll();
 	}
@@ -35,7 +36,16 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public Appointment addAppointment(Appointment appointment) {
+	public Appointment addAppointment(Appointment appointment) throws Exception {
+		if(appointment.getDate().equals("")) {
+			throw new InvalidAppointmentException("Invalid Appointment Date");
+			}
+			if(appointment.getStatus().equals("")) {
+			throw new InvalidAppointmentException("Invalid Appointment Status");
+			}
+			else
+
+
 		// TODO Auto-generated method stub
 		return appointmentRepository.save(appointment);
 	}
