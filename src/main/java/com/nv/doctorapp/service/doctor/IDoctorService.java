@@ -25,4 +25,6 @@ public interface IDoctorService {
 	
 	public List<Doctor> getDoctorBySpeciality(String speciality);
 
+	public Doctor updateHospitalByDoctorId(int doctorId, int hospitalId);
+	
 }

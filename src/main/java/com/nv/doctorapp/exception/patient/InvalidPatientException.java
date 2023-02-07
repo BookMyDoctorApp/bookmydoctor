@@ -1,4 +1,4 @@
-package com.nv.doctorapp.exception.doctor;
+package com.nv.doctorapp.exception.patient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InvalidDoctorException extends Exception{
+public class InvalidPatientException extends Exception {
 
 	String msg;
 
 	@Override
 	public String toString() {
-		return "InvalidDoctorException [msg=" + msg + "]";
+		return "InvalidPatientException [msg=" + msg + "]";
 	}
-	
-	
 }

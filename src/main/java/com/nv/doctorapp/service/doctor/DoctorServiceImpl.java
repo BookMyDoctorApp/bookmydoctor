@@ -6,25 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nv.doctorapp.entity.Doctor;
-import com.nv.doctorapp.exception.doctor.InvalidDoctorException;
+import com.nv.doctorapp.entity.Hospital;
+import com.nv.doctorapp.exception.doctor.InvalidDoctorNameException;
+import com.nv.doctorapp.exception.doctor.InvalidEmailException;
 import com.nv.doctorapp.repository.doctor.IDoctorRepository;
+import com.nv.doctorapp.repository.hospital.IHospitalRepository;
 
 @Service
 public class DoctorServiceImpl implements IDoctorService {
 
 	@Autowired
 	private IDoctorRepository doctorRepository;
+	
+	@Autowired
+	private IHospitalRepository ihospitalRepository;
 
 
 	@Override
 	public Doctor addDoctor(Doctor doctor) throws Exception {
 
 		if (doctor.getDoctorName().equals("")){
-			throw new InvalidDoctorException("Invalid Doctor Name");
+			throw new InvalidDoctorNameException("Invalid Doctor Name");
 		}
 		
 		if (doctor.getEmail().equals("")){
-			throw new InvalidDoctorException("Invalid Email Id");
+			throw new InvalidEmailException("Invalid Email Id");
 		}
 		
 		return doctorRepository.save(doctor);
@@ -85,5 +91,32 @@ public class DoctorServiceImpl implements IDoctorService {
 	public List<Doctor> getDoctorBySpeciality(String speciality) {
 
 		return doctorRepository.getDoctorBySpeciality(speciality);
+	}
+
+	@Override
+	public Doctor updateHospitalByDoctorId(int doctorId, int hospitalId) {
+		
+		Doctor doctorFromDB = getDoctorById(doctorId);
+		Hospital hospitalFromDB = ihospitalRepository.getReferenceById(hospitalId);
+		
+		if(doctorFromDB !=null & hospitalFromDB != null) {
+			List<Doctor> allDoctors = hospitalFromDB.getDoctors();
+			
+			if(allDoctors!= null && allDoctors.isEmpty()==false) {
+				allDoctors.add(doctorFromDB);
+				hospitalFromDB.setDoctors(allDoctors);
+			}
+			else {
+				List<Doctor> newDoctorList=new ArrayList<>();
+				newDoctorList.add(doctorFromDB);
+				hospitalFromDB.setDoctors(newDoctorList);
+			}
+			ihospitalRepository.saveAndFlush(hospitalFromDB);
+			doctorRepository.save(doctorFromDB);
+			return doctorFromDB;
+		}
+		else {
+			return null;
+		}
 	}
 }

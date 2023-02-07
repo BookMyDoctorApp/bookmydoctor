@@ -126,4 +126,15 @@ public class DoctorRestController {
 		
 	}
 	
+	@PutMapping("/{doctorId}/hospital/{hospitalId}")
+	public ResponseEntity<DoctorResponseDTO>updateHospitalByDoctorId(@PathVariable int doctorId, @PathVariable int hospitalId)
+	{
+		Doctor updatedDoctor = doctorService.updateHospitalByDoctorId(doctorId,hospitalId);
+		if(updatedDoctor!=null) {
+			DoctorResponseDTO dto = dtoConvertor.convertTo(updatedDoctor);
+			return new ResponseEntity<DoctorResponseDTO>(dto, HttpStatus.OK);
+		}
+		return null;
+	}
+	
 }

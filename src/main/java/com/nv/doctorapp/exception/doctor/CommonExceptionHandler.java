@@ -13,8 +13,7 @@ import com.nv.doctorapp.dto.doctor.ExceptionDTOResponse;
 public class CommonExceptionHandler {
 	
 	@ExceptionHandler
-	
-	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidDoctorException e)
+	public ResponseEntity<ExceptionDTOResponse> invalidDoctor(InvalidDoctorNameException e)
 	{
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
 		dto.setErrorMsg(e.toString());
@@ -22,10 +21,11 @@ public class CommonExceptionHandler {
 		return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
 	}
 	
-	public ResponseEntity<ExceptionDTOResponse> invalidEmail(InvalidDoctorException e)
+	@ExceptionHandler
+	public ResponseEntity<ExceptionDTOResponse> invalidEmail(InvalidEmailException e1)
 	{
 		ExceptionDTOResponse dto = new ExceptionDTOResponse();
-		dto.setErrorMsg(e.toString());
+		dto.setErrorMsg(e1.toString());
 		dto.setDateTime(LocalDateTime.now()+"");
 		return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
 	}
