@@ -1,0 +1,9 @@
+
+<input type="text" #cityName>
+<button (click)="getHospitals(cityName.value)">Load Hospital</button>
+
+<div *ngFor="let x of allHospitals">
+    <div> {{x.hospitalId}}</div>
+    <div> {{x.hospitalName}}</div>
+    <hr/>
+</div>

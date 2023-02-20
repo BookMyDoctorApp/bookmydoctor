@@ -1,0 +1,45 @@
+<div style="margin-left: 15%; width: 100%; height: 100%; margin-bottom: 20%;">
+    <form (ngSubmit)="doFormSubmit()" #hospitalForm="ngForm">
+        
+        <div class="form-group">
+            <label>Hospital Id</label>
+            <input type="text" [(ngModel)]="h.hospitalId" class="form-controll" id="hid" name="hid" 
+                #hospitalId="ngModel" placeholder="Enter Hospital Id" required pattern="[0-9][0-9][0-9]">
+                <div *ngIf="hospitalId.invalid">
+                    <span style="color: red;" *ngIf="hospitalId.errors?.['required']">
+                        Hospital Id is required
+                    </span>
+                    <span style="color: red;" *ngIf="hospitalId.errors?.['pattern']">
+                        Hospital Id is not valid
+                    </span>
+                </div>
+        </div>
+        
+        <br/>
+        <div class="form-group">
+            <label>Hospital Name</label>
+            <input type="text" class="form-controll" id="hospitalName" name="hospitalName" placeholder="Enter Hospital Name" [(ngModel)]="h.hospitalName">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Hospital State</label>
+            <input type="text" class="form-controll" id="hospitalState" name="hospitalState" placeholder="Enter Hospital State" [(ngModel)]="h.hospitalState">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Hospital City</label>
+            <input type="text" class="form-controll" id="hospitalCity" name="hospitalCity" placeholder="Enter Hospital City" [(ngModel)]="h.hospitalCity">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Hospital Speciality</label>
+            <input type="text" class="form-controll" id="speciality" name="speciality" placeholder="Enter Hospital Speciality" [(ngModel)]="h.speciality">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Hospital Fees</label>
+            <input type="text" class="form-controll" id="fees" name="fees" placeholder="Enter Hospital Fees" [(ngModel)]="h.fees">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,69 @@
+<div>
+    <table class="myApp1">
+        <tr>
+            <td>
+                <b>Filter by Speciality</b>
+                <select #speciality (change)="getFilterData(speciality.value)">
+                    <option> Women's Hospital </option>
+                    <option> Children's Hospital </option>
+                    <option> Cardiac Hospital </option>
+                    <option> Psychiatric Hospital </option>
+                    <option> Multi Speciality Hospital </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/>
+<div>
+    <table class="myApp2">
+        <tr>    
+            <td>
+                <b>Filter by State</b>
+                <select #hospitalState (change)="getFilterData1(hospitalState.value)">
+                    <option> Maharashtra </option>
+                    <option> Delhi </option>
+                    <option> Bengalore </option>
+                    <option> Chennai </option>
+                    <option> Hydrabad </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/>
+<div>
+    <table class="myApp3">
+        <tr>
+            <td>
+                <b>Filter by City</b>
+                <input type="text" #hospitalCity (change)="getFilterData2(hospitalCity.value)">
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngFor="let h of allHospital">
+    <table>
+        <tr>
+            <td> <img src="/assets/images/{{h.imageName}}" width="200px" height="250px"></td>
+            <td>
+                <h2>{{h.hospitalName}}</h2>
+                <p>Speciality: {{h.speciality}}</p>
+                <p>State: {{h.hospitalState}}</p>
+                <p>City: {{h.hospitalCity}}</p>
+                <p>About: {{h.about|myabout}}</p>
+                <hr/>
+                <span> Hospital Fees <span [style]="h.fees<75?feesLowCss:feesNormalCss">{{h.fees|currency:'INR'}}</span>
+                <i *ngIf="h.discount>0">
+                    with {{h.discount}}% Off
+                    <span *ngIf="h.discount>9">
+                        <b style="color: blue; font-family: Georgia, 'Times New Roman', Times, serif;"><u>Recommended</u></b>
+                    </span>
+                </i>
+                </span>
+                <hr/>
+                <button value="{{h.hospitalId}}" (click)="goForAppointment(hospital.value)" #hospital>Make an Appointment</button>
+            </td>
+        </tr>
+    </table>
+</div>

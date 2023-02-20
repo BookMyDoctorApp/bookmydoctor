@@ -1,0 +1,18 @@
+<img src="/assets/images/{{h.imageName}}" width="250px" height="250px">
+<h2 style="color: brown; font-style: italic;">{{h.hospitalName}}</h2>
+<table>
+    <tr>
+        <td>
+            <p>{{h.about}}</p>
+            <hr/>
+            <span>Hospital Fees <span>{{h.fees|currency:'INR'}}</span> 
+            <i *ngIf="h.discount>0">
+                with {{h.discount}}% Off
+                <span *ngIf="h.discount>9">
+                    <b style="color: blue; font-family: Georgia, 'Times New Roman', Times, serif;"><u>Recommended</u></b>
+            </span>
+            </i>
+            </span>
+        </td>
+    </tr>
+</table>

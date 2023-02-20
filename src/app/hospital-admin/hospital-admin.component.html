@@ -1,0 +1,69 @@
+<h1 class="myApp">Hospital App</h1>
+<table class="myapp1">
+    <tr>
+        <td> Hospital Id </td>
+        <td> <input type="text" #hospitalId/> </td>
+    </tr>
+    <tr>
+        <td> Hopital Name </td>
+        <td> <input type="text" #hospitalName/> </td>
+    </tr>
+    <tr>
+        <td> Hopital State </td>
+        <td> <select #hospitalState>
+            <option> Maharashtra </option>
+            <option> Delhi </option>
+            <option> Bengalore </option>
+            <option> Chennai </option>
+            <option> Hydrabad </option>
+        </select> 
+        </td>
+    </tr>
+    <tr>
+        <td> Hopital City </td>
+        <td> <input type="text" #hospitalCity/> </td>
+    </tr>
+    <tr>
+        <td> Speciality </td>
+        <td>
+            <select #speciality>
+                <option> Women's Hospital </option>
+                <option> Children's Hospital </option>
+                <option> Cardiac Hospital </option>
+                <option> Psychiatric Hospital </option>
+                <option> Multi Speciality Hospital </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td> About </td>
+        <td> <input type="text" #about/> </td>
+    </tr>
+    <tr>
+        <td> Image name </td>
+        <td> <input type="text" #imageName/> </td>
+    </tr>
+    <tr>
+        <td> Fees </td>
+        <td> <input type="text" #fees/> </td>
+    </tr>
+    <tr>
+        <td> Discount </td>
+        <td> <input type="text" #discount/> </td>
+    </tr>
+    <tr>
+        <td> <input type="reset" value="Clear All"> </td>
+        <td> <input type="button" (click)="searchHospital(hospitalId.value,hospitalName.value,hospitalCity.value,
+            hospitalState.value,speciality.value,imageName.value,fees.value,discount.value,about.value)" value="Add Hospital"/> </td>
+    </tr>
+</table>
+<br/>
+<br/>
+<table class="form">
+    <div>
+        <tr>
+            <td><app-tdfhospital-page></app-tdfhospital-page></td>
+        </tr>
+    </div>
+</table>
+
