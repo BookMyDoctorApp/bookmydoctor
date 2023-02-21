@@ -1,0 +1,68 @@
+<table>
+    <tr>
+        <td>
+            <input type="text" #searchId>
+            <button (click)="getHospital(searchId.value)">Search Hospital</button> 
+            <div *ngFor="let hospital of allHospital">
+            <div>Hospital Name: {{hospital.hospitalName}}</div>
+            <div>Hospital State: {{hospital.state}}</div>
+            <div>Hospital City: {{hospital.city}}</div>
+            <div>Hospital Address: {{hospital.address}}</div>
+            <div>Hospital Rating: {{hospital.hospitalRating}}</div>
+            </div>
+        </td>
+    </tr>
+</table>
+    <br/>
+<table>
+    <tr>
+        <td>
+            <button (click)="getAllHospitals()">View all Hospital</button> 
+            <div *ngFor="let hospital of allHospital">
+            <div>HospitalName: {{hospital.hospitalName}}</div>
+            <div>State: {{hospital.state}}</div>
+            <div>City: {{hospital.city}}</div>
+            <div>Address: {{hospital.address}}</div>
+            <div>HospitalRating: {{hospital.hospitalRating}}</div>
+            <hr/>
+            </div>
+        </td>
+    </tr>
+</table>
+    <br/>
+<table>
+    <tr>
+        <td>
+            <p>Enter City</p>
+            <input type="text" #searchCity>
+            <button (click)="getHospitalsByCity(searchCity.value)">Load Hospital</button> 
+            <div *ngFor="let hospital of allHospital">
+            <div>HospitalName: {{hospital.hospitalName}}</div>
+            <div>State: {{hospital.state}}</div>
+            <div>City: {{hospital.city}}</div>
+            <div>Address: {{hospital.address}}</div>
+            <div>HospitalRating: {{hospital.hospitalRating}}</div>
+            <hr/>
+            </div>
+        </td>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+        <td>
+            <p>Enter State</p>
+            <input type="text" #searchState>
+            <button (click)="getHospitalsByState(searchState.value)">Load Hospital</button> 
+            <div *ngFor="let hospital of allHospital">
+            <div>HospitalName: {{hospital.hospitalName}}</div>
+            <div>State: {{hospital.state}}</div>
+            <div>City: {{hospital.city}}</div>
+            <div>Address: {{hospital.address}}</div>
+            <div>HospitalRating: {{hospital.hospitalRating}}</div>
+            <hr/>
+            </div>
+        </td>
+    </tr>
+</table>
+
