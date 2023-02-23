@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DoctorOperationService } from '../doctor-operation.service';
+import { PatientDTO } from '../patient-dto';
 
 @Component({
   selector: 'app-view-patient',
@@ -7,4 +9,23 @@ import { Component } from '@angular/core';
 })
 export class ViewPatientComponent {
 
+  allPatients:PatientDTO[]=[];
+  constructor(private hospitalService:DoctorOperationService){
+ 
+   }
+ 
+   getAllPatients(){ 
+     this.hospitalService.getAllPatient().subscribe(
+      data=>{
+        console.log("data :- "+data);
+        
+        this.allPatients = data;
+      },err=>{
+        console.log("error from spring ",err);
+  
+      }
+    );
+    }
+
 }
+

@@ -1,1 +1,10 @@
-<p>my-appointment works!</p>
+<p>View all Appointments</p>
+<button (click)="getAllAppointments()">Load Appointments</button> 
+    <div *ngFor="let a of allAppointments">
+    <div>Appointment Id: {{a.appointmentId}}</div>
+    <div>Appointment Date: {{a.date}}</div>
+    <div>Appointment Status: {{a.status}}</div>
+    <div>Appointment Remark: {{a.remark}}</div>
+<hr/>
+    </div>
+        

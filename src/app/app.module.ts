@@ -15,6 +15,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAvailabilityComponent } from './add-availability/add-availability.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const allLinks:Routes=[
   {path:'myAppointments',component:MyAppointmentComponent},
@@ -42,7 +43,8 @@ const allLinks:Routes=[
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(allLinks),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

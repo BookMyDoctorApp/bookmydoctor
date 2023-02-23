@@ -6,3 +6,41 @@
     <div>City: {{doctor.city}}</div>
     <div>Email: {{doctor.email}}</div>
     <div>Fees: {{doctor.chargePerVisit}}</div>
+<br/><br/>
+
+<h2>Register Doctor</h2>
+<form #dotorForm="ngForm" (ngSubmit)="onRegisterDoctor()" class="form-horizontal">
+<div>
+    <label>Doctor Name:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.doctorName" id="name" name="name" #doctorName="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>speciality:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.speciality" id="speciality" name="speciality" #speciality="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>state:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.state" id="state" name="state" #state="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>city:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.city" id="city" name="city" #city="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>email:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.email" id="email" name="email" #email="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>fromDay:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.fromDay" id="fromDay" name="fromDay" #fromDay="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>toDay:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.toDay" id="toDay" name="toDay" #toDay="ngModel" placeholder=" " required>
+</div>
+<div>
+    <label>chargePerVisit:</label>
+    <input type="text" class="form-control"  [(ngModel)]="d.chargePerVisit" id="fees" name="fees" #chargePerVisit="ngModel" placeholder=" " required>
+</div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

@@ -1,1 +1,12 @@
-<p>feedback works!</p>
+<p>View Feedback</p>
+<input type="text" #searchName>
+<button (click)="getAllFeedback(searchName.value)">Load Feedback</button>
+<br/>
+<br/>
+<div *ngFor="let f of allFeedback">
+<div>Doctor Name: {{f.doctorName}}</div>
+<div>Feedback Id: {{f.feedbackId}}</div>
+<div>Rating: {{f.rating}}</div>
+<div>Feedback Comment: {{f.feedbackComment}}</div>
+<hr/>
+</div>
