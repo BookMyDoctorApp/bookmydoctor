@@ -1,0 +1,67 @@
+<div class="fullform">
+  <br/>
+  
+    <!-- <img class="img" background-image src="/assets/Images/1.jpg" alt=""> -->
+    
+<h1 style="text-align: center;color: black;"><u><b> Login In </b></u></h1>
+<hr/>
+<br/>
+<div *ngIf="loginStatus == false">
+  <table style="width: 100%; height: 100%;">
+    <tr style="text-align: center;">Username <input type="text" placeholder="Enter Username" #username/></tr>
+    <br/>
+    <tr style="text-align: center;">Password <input type="password" placeholder="Enter Password" #password/> </tr>
+    <br/>
+    <tr>
+       <button (click)="verifyUser(username.value,password.value)" class="button1"> Login</button> 
+       <br/>
+       
+       <h6 style="text-align: center;">Don't have an account </h6>
+       
+      <button (click)="Profile()" class="register" > Register </button>
+      <!-- <a routerLink="/userProfile"> Register </a> -->
+    </tr>
+  </table>
+</div>
+
+
+<div *ngIf="loginStatus == true" style="text-align: center;">
+  <table>
+    <tr>
+
+      <div *ngIf="userRole == 'admin'">
+      <td > 
+       <p style="font-size:large;"> Welcome {{loginUsername}} !!! </p>
+       To Do List
+        <br/>
+      </td>
+      </div>
+      <div *ngIf="userRole == 'patient'">
+        <td > 
+         <p style="font-size:large;"> Welcome {{loginUsername}} !!! </p>
+         Book Appointment
+          <br/>
+        </td>
+        </div>
+        <div *ngIf="userRole == 'doctor'">
+          <td style="text-align: center;"> 
+           <p style="font-size:large;"> Welcome {{loginUsername}} !!! </p>
+           <p > Today's Appointment </p>
+            <br/>
+          </td>
+          </div>
+          <br/>
+        </tr>
+        <tr>
+      <td>
+
+        <button (click)="doLogout()" style="margin-left: 20px;"> logout </button>
+        
+   </td>
+ </tr>
+</table>
+</div>
+</div>
+<br/>
+<br/>
+<router-outlet></router-outlet>

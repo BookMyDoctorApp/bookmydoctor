@@ -1,0 +1,25 @@
+.fullform{
+    position: relative;
+    align-items: center;
+    border-style: solid;
+    justify-content: center;
+    border-color: black;
+    color: black;
+    height: 10cm;
+    width: 15cm;
+    border-radius: 1cm;
+    background: url(/assets/Images/1.jpg);
+    
+}
+
+
+
+
+
+.button1{
+    margin-left: 6.5cm;
+}
+
+.register{
+    margin-left: 6.5cm;
+}
