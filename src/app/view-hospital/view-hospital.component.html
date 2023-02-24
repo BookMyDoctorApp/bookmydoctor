@@ -1,68 +1,50 @@
-<table>
-    <tr>
-        <td>
-            <input type="text" #searchId>
-            <button (click)="getHospital(searchId.value)">Search Hospital</button> 
-            <div *ngFor="let hospital of allHospital">
-            <div>Hospital Name: {{hospital.hospitalName}}</div>
-            <div>Hospital State: {{hospital.state}}</div>
-            <div>Hospital City: {{hospital.city}}</div>
-            <div>Hospital Address: {{hospital.address}}</div>
-            <div>Hospital Rating: {{hospital.hospitalRating}}</div>
-            </div>
-        </td>
-    </tr>
-</table>
-    <br/>
-<table>
-    <tr>
-        <td>
+
+           <!--<p>Enter HospitalId</p>
+            <input type="text" #hospitalId>
+            <button (click)="getHospitalsById(hospitalId.value)">Search HospitalId</button> 
+                <div>HospitalName: {{hospital.hospitalName}}</div>
+                <div>State: {{hospital.state}}</div>
+                <div>City: {{hospital.city}}</div>
+                <div>Address: {{hospital.address}}</div>
+                <div>HospitalRating: {{hospital.hospitalRating}}</div>
+                <hr/>
+                --> 
+           <br/>
             <button (click)="getAllHospitals()">View all Hospital</button> 
-            <div *ngFor="let hospital of allHospital">
-            <div>HospitalName: {{hospital.hospitalName}}</div>
-            <div>State: {{hospital.state}}</div>
-            <div>City: {{hospital.city}}</div>
-            <div>Address: {{hospital.address}}</div>
-            <div>HospitalRating: {{hospital.hospitalRating}}</div>
-            <hr/>
-            </div>
-        </td>
-    </tr>
-</table>
+            
     <br/>
-<table>
-    <tr>
-        <td>
             <p>Enter City</p>
             <input type="text" #searchCity>
             <button (click)="getHospitalsByCity(searchCity.value)">Load Hospital</button> 
-            <div *ngFor="let hospital of allHospital">
-            <div>HospitalName: {{hospital.hospitalName}}</div>
-            <div>State: {{hospital.state}}</div>
-            <div>City: {{hospital.city}}</div>
-            <div>Address: {{hospital.address}}</div>
-            <div>HospitalRating: {{hospital.hospitalRating}}</div>
+            
             <hr/>
-            </div>
-        </td>
-    </tr>
-</table>
+            
 <br/>
-<table>
-    <tr>
-        <td>
-            <p>Enter State</p>
+            <!--<p>Enter State</p>
             <input type="text" #searchState>
             <button (click)="getHospitalsByState(searchState.value)">Load Hospital</button> 
+            -->
+            
             <div *ngFor="let hospital of allHospital">
-            <div>HospitalName: {{hospital.hospitalName}}</div>
+                <table>
+              <tr>
+                <td> <img src="/assets/images/{{hospital.imageName}}" width="90px" height="100px"></td> 
+       
+        <td>
+            <div>HospitalName: {{hospital.hospitalName}}
+                <button (click)="moveToApollo()">View Hospital</button>
+            </div>
+
+           
             <div>State: {{hospital.state}}</div>
             <div>City: {{hospital.city}}</div>
             <div>Address: {{hospital.address}}</div>
             <div>HospitalRating: {{hospital.hospitalRating}}</div>
-            <hr/>
-            </div>
+            <!--button (click)="viewHospital(hospital.hospitalId, hospital.hospitalName, hospital.hospitalRating, hospital.address )">View Hospital</button-->                 
         </td>
-    </tr>
+        </tr>
 </table>
+        <hr/>
+            </div>
+        
 

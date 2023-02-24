@@ -1,0 +1,11 @@
+<input type="text" #searchId>
+<button (click)="getDoctorbyHospital(searchId.value)">Load Doctors</button> 
+            <div *ngFor="let doctor of doctor">
+                <div>Dr. {{doctor.doctorName}}</div>
+                <div>Speciality: {{doctor.speciality}}</div>
+                <div>State: {{doctor.state}}</div>
+                <div>City: {{doctor.city}}</div>
+                <div>Email: {{doctor.email}}</div>
+                <div>Fees: {{doctor.chargePerVisit}}</div>            
+            <hr/>
+            </div>

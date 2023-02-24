@@ -11,15 +11,17 @@ import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 import { AddHospitalComponent } from './add-hospital/add-hospital.component';
 import { ViewHospitalComponent } from './view-hospital/view-hospital.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { ApolloComponent } from './apollo/apollo.component';
 const allLinks:Routes=[
   {path:'addHospital',component:AddHospitalComponent},
   {path:'addDoctor',component:AddDoctorComponent},
   {path:'viewHospital',component:ViewHospitalComponent},
   {path:'viewDoctors',component:ViewDoctorsComponent},
   {path:'viewPatient',component:ViewPatientComponent},
-  {path:'viewAppointmentl',component:ViewAppointmentComponent},
-  {path:'viewFeedbacks',component:ViewFeedbacksComponent}
+  {path:'viewAppointment',component:ViewAppointmentComponent},
+  {path:'viewFeedbacks',component:ViewFeedbacksComponent},
+  {path:'search',component:ApolloComponent}
 ]
 
 @NgModule({
@@ -31,13 +33,15 @@ const allLinks:Routes=[
     ViewFeedbacksComponent,
     ViewDoctorsComponent,
     AddHospitalComponent,
-    ViewHospitalComponent
+    ViewHospitalComponent,
+    ApolloComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(allLinks),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [],

@@ -1,1 +1,16 @@
-<p>view-appointment works!</p>
+<table>
+    <tr>
+        <td>
+            <button (click)="getAllAppointment()">Load Appointments</button> 
+                <div *ngFor="let a of allAppointment">
+               <div>appointmentId: {{a.appointmentId}}</div>
+               <div>appointmentDate: {{a.date}}</div>
+               <div>appointmentStatus: {{a.status}}</div>
+               <div>appointmentremark: {{a.remark}}</div>
+
+                <hr/>
+            </div>
+        </td>
+    </tr>
+</table>
+
