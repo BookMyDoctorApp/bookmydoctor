@@ -1,41 +1,48 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+import {  HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { PatientFeedbackComponent } from './patient-feedback/patient-feedback.component';
-import { RouterModule, Routes } from "@angular/router";
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
-
-import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-import { Page1Component } from './page1/page1.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HelpComponent } from './help/help.component';
 
 
-const allLinks:Routes=[
-{path:'addFeedback',component:AddFeedbackComponent},
-{path:'viewFeedback',component:PatientFeedbackComponent},
-{path: 'page1',component:Page1Component}
-
-
+const allLinks:Routes = [
+  
+{path:'register1',component:RegisterComponent},
+{path:'login1',component:LoginComponent},
+// {path:'aboutUs',component:AboutUsComponent},
+//   {path:'homePage',component:HomePageComponent},
+//   {path:'help',component:HelpComponent}
+ {path:'aboutUs',component:AboutUsComponent},
+ {path:'homePage',component:HomePageComponent},
+ {path:'help',component:HelpComponent},
+  
 ]
+
+   
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientFeedbackComponent,
-   
-    AddFeedbackComponent,
+    LoginComponent,
+    RegisterComponent,
     HeaderComponent,
-    Page1Component
+    AboutUsComponent,
+    HomePageComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     RouterModule.forRoot(allLinks),
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,167 @@
+<div class="fullreg">
+    <br/>
+<h1 style="text-align: center;">Registration</h1>
+
+<hr/>
+<table>
+    <div class="registration">
+        <!-- <form (ngSubmit)="doFormSubmit()" #patientForm="ngForm"> -->
+  <form >          
+<table>
+    <tr>
+        <div class="form-group" style="text-align: center;">
+            <td><label>Enter your Name</label></td>
+            <td><input type="text" #patientName="ngModel" pattern="[a-zA-Z]+" [(ngModel)]="p.patientName"
+                    class="form-control" id="pName" name="pName" placeholder=" Enter Name" required>
+                <div *ngIf="patientName.invalid">
+                    <span style="color: red;" *ngIf="patientName.errors?.['required']">
+                        Name is required Field
+                    </span>
+                    <span style="color: red;" *ngIf="patientName.errors?.['pattern']">
+                         Name is not valid
+                    </span>
+                </div>
+            </td>
+        </div>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+
+        <div class="form-group">
+            <td><label>Enter Your Age</label></td>
+            <td><input type="text"  #patientAge="ngModel" [(ngModel)]="p.patientAge" class="form-control" id="p.patientAge" name="patientAge"
+                    placeholder="Enter Age" required min="1" max="120">
+
+                <div *ngIf="patientAge.invalid">
+                    <span style="color: red;" *ngIf="patientAge.errors?.['required']">
+                         Age is required Field
+                    </span>
+                    <span style="color: red;" *ngIf="patientAge.errors?.['pattern']">
+                         Age is not valid
+                    </span>
+                </div>
+            </td>
+        </div>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+
+        <div class="form-group">
+            <td><label>Enter City</label></td>
+            <td><input type="text" #patientCity="ngModel" pattern="[a-zA-Z]+" [(ngModel)]="p.patientCity"
+                    class="form-control" id="pCity" name="pCity" placeholder="Enter City " required>
+                <div *ngIf="patientCity.invalid">
+                    <span style="color: red;" *ngIf="patientCity.errors?.['required']">
+                        City is required Field
+                    </span>
+                    
+                </div>
+        </div>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+
+        <div class="form-group">
+
+           <td><label >Phone Number</label></td>
+            <td><input type="text" [(ngModel)]="p.patientPhoneNumber" class="form-control" id="pPhone" name="pPhone"
+                    #patientPhoneNumber="ngModel" placeholder="Enter Phone Number" required pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
+                <div *ngIf="patientPhoneNumber.invalid">
+                    <span style="color: red;" *ngIf="patientPhoneNumber.errors?.['required']">
+
+                         Phone Number is required Field
+                    </span>
+                    <span style="color: red;" *ngIf="patientPhoneNumber.errors?.['pattern']">
+                        Phone Number is not valid
+                    </span>
+        
+                </div>
+            </td>
+        
+        </div>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+        <div class="form-group">
+
+            <label class="mr-sm-2">Select Gender</label>
+            <select [(ngModel)]="p.patientGender" class="form-control form-control-lg" id="pPatientGender"
+                name="pPatientGender">
+                
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+        </div>
+    </tr>
+</table>
+</form>          
+<br/>
+<table>
+    <tr>
+        <div class="form-group">
+            <td><label>Enter Password</label></td>
+            <td><input type="text" #password="ngModel" pattern="[a-zA-Z0-9]+" [(ngModel)]="p.password"
+                    class="form-control" id="password" name="password" placeholder=" Enter Password " required>
+                <div *ngIf="password.invalid">
+                    <span style="color: red;" *ngIf="password.errors?.['required']">
+
+                        Password is required Field
+                    </span>
+                    <!-- <span style="color: red;" *ngIf="password.errors?.['pattern']">
+                        Patient Disease is not valid
+                    </span> -->
+                </div>
+            </td>
+        </div>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+        <div class="form-group">
+            <td><label>Enter Blood Group</label></td>
+            <td><input type="text" [(ngModel)]="p.patientBloodGroup" class="form-control" id="patientBloodGroup"
+                    name="p.patientBloodGroup" placeholder="Enter Blood Group">
+        </div>
+    </tr>
+</table>
+<br/>
+<button style=" margin-left: 80%; " type="submit; "
+    class="btn btn-primary mb-2" (click)="onSubmit()" (click)="moveToLogin()">Submit</button>
+
+<!-- </form> -->
+<br/>
+</div>
+
+</table>
+<br/>
+</div>
+<br/>
+<br/>
+
+
+<div *ngFor="let x of allPatients">
+    <table>
+        
+        <div style="overflow-x: auto;"></div>
+            <h2>Registration Done</h2>
+            <tr><td>Id:{{x.patientId}}</td></tr>
+            <tr><td>Name:{{x.patientName}}</td></tr>
+            <tr><td>City:{{x.patientCity}}</td></tr>
+            <tr><td>Age:{{x.patientAge}}</td></tr>
+            <tr><td>Gender:{{x.patientGender}}</td></tr>
+            <tr><td>Disease:{{x.patientDisease}}</td></tr>
+            <tr><td>PhoneNumber:{{x.patientPhoneNumber}}</td></tr>
+            <tr><td>BloodGroup:{{x.patientBloodGroup}}</td></tr>
+        
+    </table>
+</div>

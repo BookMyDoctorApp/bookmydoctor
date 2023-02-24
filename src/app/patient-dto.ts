@@ -1,7 +1,8 @@
-export class PatientDTO {
+export class Patient {
 
     patientId: number;
     patientName: string;
+    password:string;
     patientCity: string;
     patientAge: number;
     patientGender: string;
@@ -12,6 +13,7 @@ export class PatientDTO {
     constructor(
         patientId: number,
         patientName: string,
+        password:string,
         patientCity: string,
         patientAge: number,
         patientGender: string,
@@ -22,6 +24,7 @@ export class PatientDTO {
     ) {
         this.patientId = patientId;
         this.patientName = patientName;
+        this.password=password;
         this.patientCity = patientCity;
         this.patientAge = patientAge;
         this.patientGender = patientGender;
@@ -30,5 +33,4 @@ export class PatientDTO {
         this.patientBloodGroup = patientBloodGroup;
 
     }
-
 }

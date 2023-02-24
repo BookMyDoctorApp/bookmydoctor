@@ -1,0 +1,29 @@
+.fullform{
+    position: relative;
+    align-items: center;
+    /* border-style: solid; */
+    justify-content: center;
+    /* border-color: black; */
+    color: black;
+    height: 100%;
+    /* width: 15cm; */
+    /* border-radius: 1cm; */
+    background-color: rgb(136, 215, 209);
+    
+}
+
+
+
+
+
+.button1{
+    margin-left: 16.1cm;
+}
+
+.button2{
+    margin-left: 16cm;
+}
+
+.register{
+    margin-left: 6.5cm;
+}

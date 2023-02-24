@@ -1,6 +1,11 @@
-.background{
-    /* background: url(/assets/Images/background4.jpg); */
+/* .login{
     background-size: cover;
-    background-color: rgba(181, 237, 236, 0.434);
+    background-color: rgba(190, 234, 234, 0.434);
+} */
+.link{
+    width: 15%;
     text-align: center;
-}
+    color: rgb(11, 20, 38);
+    font-size: 20px;
+    border-right: rgb(11, 20, 38) 2px solid;
+ }
