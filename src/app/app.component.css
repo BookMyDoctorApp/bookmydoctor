@@ -1,0 +1,6 @@
+.background{
+    /* background: url(/assets/Images/background4.jpg); */
+    background-size: cover;
+    background-color: rgba(181, 237, 236, 0.434);
+    text-align: center;
+}

@@ -1,5 +1,4 @@
-export class FeedbackDTO {
-
+export class Feedback {
     feedbackId:number;
     patientName:string;
     hospitalName:string;

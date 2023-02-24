@@ -1,0 +1,58 @@
+<table>
+<div class="fullform">
+    <br/>
+<h1 style="text-align: center;"> Feedback Form </h1>
+<br/>
+<!-- <form (ngSubmit)="getFeedbackByDoctorName()" #feedbackform="ngForm" class="form-horizontal"> -->
+
+    <tr> 
+        <div class="form-group1">
+            
+            <tr>         
+           <td ><label  for="patientName">Patient Name </label></td>
+            <td ><input type="text" class="form-control" id="patientName" name="patientName" [(ngModel)]="f.patientName" #patientName="ngModel"  placeholder="Enter Your Name" required></td><br/>
+        </tr>
+        <br/>
+        <tr>
+            <td><label for="hospitalName">Hospital Name </label></td>
+            <td><input type="text" class="form-control" id="hospitalName" name="hospitalName" [(ngModel)]="f.hospitalName" hospitalName="ngModel" placeholder="Enter Hospital Name" required></td>
+        </tr>
+        <br/>
+        <tr>
+            <td><label for="doctorName">Doctor Name </label></td>
+            <td><input type="text" class="form-control" id="doctorName" name="doctorName" [(ngModel)]="f.doctorName" doctorName="ngModel" placeholder="Enter Doctor Name" required></td>
+        </tr>
+        </div>
+    </tr>
+    <br/><br/>
+
+    <tr>
+        <div class="form-group2">
+            <label for="rating">Rating </label>
+            <div class="star-rating">
+              <span class="star" [class.filled]="f.rating >= 1" (click)="f.rating = 1">&#9733;</span>
+              <span class="star" [class.filled]="f.rating >= 2" (click)="f.rating = 2">&#9733;</span>
+              <span class="star" [class.filled]="f.rating >= 3" (click)="f.rating = 3">&#9733;</span>
+              <span class="star" [class.filled]="f.rating >= 4" (click)="f.rating = 4">&#9733;</span>
+              <span class="star" [class.filled]="f.rating >= 5" (click)="f.rating = 5">&#9733;</span>
+            </div>
+          </div>
+    </tr>
+    <br/><br/>
+    <tr >
+        <div class="form-group3">
+            <label style="text-align: top;" for="feedback"> Feedback </label>
+            <textarea class="form-control2" id="feedback" name="feedback" [(ngModel)]="f.feedback" feedback="ngModel" placeholder="Any Suggetions..."></textarea>
+        </div>
+    </tr>
+    <br/>
+    <button type="submit" (click)="onSubmit()" (click)="moveToPage1()" class="btn btn-primary"  style="margin-left:40%;">Submit</button>
+
+    <br/>
+    <br/>
+    </div>
+    
+</table>
+
+
+

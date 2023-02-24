@@ -1,0 +1,50 @@
+.fullform{
+    background-color: rgb(213, 245, 239);
+    width: 200%;
+    height:200%;
+    justify-content: 40cm;
+    /* border-radius: 0.5cm; */
+    margin-left: 50%;
+}
+
+.form-group1{
+text-align: center;
+margin-left: 50%;
+justify-content: center;
+}
+
+.form-group2{
+  text-align: center;
+  margin-left: 100%;
+  justify-content: center;
+  }
+
+  .form-group3{
+    text-align: center;
+    margin-left: 50%;
+    justify-content: center;
+    }
+
+.btn btn-primary{
+
+  align-content: left;
+   
+}
+
+
+
+.star-rating {
+    display: inline-block;
+    margin-left: 50%;
+  }
+  
+  .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: grey;
+   
+  }
+  
+  .filled {
+    color: orange;
+  }

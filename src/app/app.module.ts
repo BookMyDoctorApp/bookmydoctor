@@ -3,48 +3,39 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HospitalComponent } from './hospital/hospital.component';
-import { DoctorComponent } from './doctor/doctor.component';
-import { PatientComponent } from './patient/patient.component';
-import { AppointmentComponent } from './appointment/appointment.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { MyAppointmentComponent } from './my-appointment/my-appointment.component';
-import { ViewPatientComponent } from './view-patient/view-patient.component';
-import { AddDiscriptionComponent } from './add-discription/add-discription.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-import { RouterModule, Routes } from '@angular/router';
-import { AddAvailabilityComponent } from './add-availability/add-availability.component';
+import { PatientFeedbackComponent } from './patient-feedback/patient-feedback.component';
+import { RouterModule, Routes } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
+import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
+import { HeaderComponent } from './header/header.component';
+import { Page1Component } from './page1/page1.component';
+
 
 const allLinks:Routes=[
-  {path:'myAppointments',component:MyAppointmentComponent},
-  {path:'viewPatient',component:ViewPatientComponent},
-  {path:'addAvailability',component:AddAvailabilityComponent},
-  {path:'myProfile',component:MyProfileComponent},
-  {path:'viewFeedback',component:FeedbackComponent}
+{path:'addFeedback',component:AddFeedbackComponent},
+{path:'viewFeedback',component:PatientFeedbackComponent},
+{path: 'page1',component:Page1Component}
+
+
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HospitalComponent,
-    DoctorComponent,
-    PatientComponent,
-    AppointmentComponent,
-    FeedbackComponent,
-    MyAppointmentComponent,
-    ViewPatientComponent,
-    AddDiscriptionComponent,
-    MyProfileComponent,
-    AddAvailabilityComponent
+    PatientFeedbackComponent,
+   
+    AddFeedbackComponent,
+    HeaderComponent,
+    Page1Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(allLinks),
-    HttpClientModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

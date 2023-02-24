@@ -1,0 +1,70 @@
+    <form>
+        <table>
+            <br/><br/>
+         <tr  class="align">
+    <td><button (click)="viewAllFeedback()" style="text-align: center;">View Feedback</button></td>
+    <br/>
+<br/>
+<br/>
+    <br/>
+    </tr>
+
+    <!-- <div *ngFor="let feedbacks of allFeedback">
+        <div> Patient Name {{feedbacks.patientName}}</div>
+        <div> Hospital Name {{feedbacks.hospitalName}}</div>
+        <div> Doctor Name {{feedbacks.doctorName}}</div>
+        <div> Rating {{feedbacks.rating}}</div>
+        <div> Feedback {{feedbacks.feedback}}</div>
+    </div> -->
+<tr>
+    <td style="text-align: cenetr;">Enter Doctor Name</td>
+    <td><input type="text"  #doctorName></td>
+    <td><button (click)="getFeedbackByDoctorNames(doctorName.value)" style="margin-left: 10%;width:4cm">Search Feedback</button></td>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+         </tr>
+
+
+         <tr>
+            <td style="text-align: cenetr;">Enter Hospital Name</td>
+            <td><input type="text"  #hospitalName></td>
+            <td><button (click)="getFeedbackByHospitalNames(hospitalName.value)" style="margin-left: 10%;width:4cm">Search Feedback</button></td>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <hr/>
+                 </tr>
+
+                 <tr>
+                    <td style="text-align: cenetr;">Enter Patient Name</td>
+                    <td><input type="text"  #patientName></td>
+                    <td><button (click)="getFeedbackByPatientNames(patientName.value)" style="margin-left: 10%;width:4cm">Search Feedback</button></td>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <hr/>
+                         </tr>
+
+
+
+
+
+    <div *ngFor="let feedbacks of allFeedback">
+        <div> Patient Name {{feedbacks.patientName}}</div>
+        <div> Hospital Name {{feedbacks.hospitalName}}</div>
+        <div> Doctor Name {{feedbacks.doctorName}}</div>
+        <div> Rating {{feedbacks.rating}}</div>
+        <div> Feedback {{feedbacks.feedback}}</div>
+        <hr/>
+    </div>
+    
+    <br/>
+</table>
+</form>
+    
+

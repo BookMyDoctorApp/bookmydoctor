@@ -1,4 +1,15 @@
-<h1 style="background-color: rgb(211, 242, 255); color: rgb(70, 219, 177); text-align: center;">Book My Doctor</h1>
+<div class="background">
+    <table>
+<app-header></app-header>
+</table>
+<table style="width: 100%;height: 10%; " >
+    <tr>
+        <td style="width: 10%; text-align: center;font-size: larger;"> <a routerLink='/addFeedback'> Add Feedback </a> </td>
+        <td style="width: 10%; text-align: center;font-size: larger;"><a routerLink='/viewFeedback'> View Feedback </a> </td>
+    </tr>
+</table>
 <hr/>
-<app-doctor></app-doctor>
-
+<table>
+<router-outlet></router-outlet>
+</table>
+</div>
