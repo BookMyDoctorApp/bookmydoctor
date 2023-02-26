@@ -33,7 +33,7 @@ export class ViewHospitalComponent {
   );
   }
   getHospitalsByCity(cityName:string){
-    this.allHospital=[];
+   
 
     this.hospitalService.getHospitalByCity(cityName).subscribe(
       data=>{
@@ -76,16 +76,14 @@ export class ViewHospitalComponent {
     );
   }
   
-  //localStorage.setItem("username",ipUsername);
- /* viewHospital(hospitalId:number, hospitalName:string, hospitalRating:number, address:string ){
-    localStorage.removeItem("hospitalName")
-    
-    localStorage.setItem("hospitalName",hospitalName);
+    /*localStorage.setItem("username",ipUsername);
+    viewHospital(hospitalId:number, hospitalName:string, hospitalRating:number, address:string ){
+    localStorage.removeItem("hospitalName")*/
 
-  }*/
-
-  moveToApollo(){
-    this.router.navigate(['search']);
+    moveToApollo(){
+      this.router.navigate(['search']);
+    }
   }
 
-}//end of class
+  
+//end of class

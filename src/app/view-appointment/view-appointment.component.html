@@ -1,4 +1,4 @@
-<table>
+<!--table>
     <tr>
         <td>
             <button (click)="getAllAppointment()">Load Appointments</button> 
@@ -12,5 +12,17 @@
             </div>
         </td>
     </tr>
-</table>
+</table-->
 
+<div class="card" style="width: 18rem;">
+    <button (click)="getAllAppointment()">Load Appointments</button> 
+    <!--img class="card-img-top" src="..." alt="Card image cap"-->
+    <div class="card-body">
+        <div *ngFor="let a of allAppointment">
+      <h5 class="card-title">{{a.appointmentId}}</h5>
+        <div>appointmentDate: {{a.date}}</div>
+        <div>appointmentStatus: {{a.status}}</div>
+        <div>appointmentremark: {{a.remark}}</div><hr/>
+        </div>
+    </div>
+  </div>

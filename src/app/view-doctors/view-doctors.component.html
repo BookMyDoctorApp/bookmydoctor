@@ -1,16 +1,27 @@
 <table>
     <tr>
         <td>
-            <button (click)="getAllDoctors()">Load Doctors</button> 
-            <div *ngFor="let doctor of allDoctors">
+            <button (click)="getAllDoctors()">Load Doctors</button> <hr/>
+            <!--div *ngFor="let doctor of allDoctors">
                 <div>Dr. {{doctor.doctorName}}</div>
                 <div>Speciality: {{doctor.speciality}}</div>
                 <div>State: {{doctor.state}}</div>
                 <div>City: {{doctor.city}}</div>
                 <div>Email: {{doctor.email}}</div>
-                <div>Fees: {{doctor.chargePerVisit}}</div>            
+                <div>Fees: {{doctor.chargePerVisit}}</div--> 
+                
+                <div class="card" style="width: 18rem;">
+                    <!--img class="card-img-top" src="..." alt="Card image cap"-->
+                    <div class="card-body">
+                        <div *ngFor="let doctor of allDoctors">
+                        <h5 class="card-title">Dr. {{doctor.doctorName}}</h5>
+                        <div>Speciality: {{doctor.speciality}}</div>
+                        <div>State: {{doctor.state}}</div>
+                        <div>City: {{doctor.city}}</div>
+                        <div>Email: {{doctor.email}}</div>
+                        <div>Fees: {{doctor.chargePerVisit}}</div> 
+                        <hr/>
+                </div>
             <hr/>
             </div>
-        </td>
-    </tr>
-</table>
+ 

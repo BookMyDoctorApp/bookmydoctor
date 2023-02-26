@@ -4,11 +4,11 @@ import { FeedbackDTO } from '../feedback-dto';
 import { HospitalOperationService } from '../hospital-operation.service';
 
 @Component({
-  selector: 'app-view-feedbacks',
-  templateUrl: './view-feedbacks.component.html',
-  styleUrls: ['./view-feedbacks.component.css']
+  selector: 'app-afeedback',
+  templateUrl: './afeedback.component.html',
+  styleUrls: ['./afeedback.component.css']
 })
-export class ViewFeedbacksComponent {
+export class AfeedbackComponent {
 
   allFeedback:FeedbackDTO[]=[];
 
@@ -29,3 +29,4 @@ export class ViewFeedbacksComponent {
     );
   }
 }
+

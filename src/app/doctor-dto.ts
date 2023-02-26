@@ -6,7 +6,10 @@ export class DoctorDto {
     state:String;
     city:String ;
     email:String;
+    fromDay:string;
+    toDay:string;
     chargePerVisit:number;
+    
 
     constructor(
         doctorId:number,
@@ -15,7 +18,10 @@ export class DoctorDto {
         state:String,
         city:String ,
         email:String,
-        chargePerVisit:number
+        fromDay:string,
+        toDay:string,
+        chargePerVisit:number,
+       
     )
     
     {
@@ -25,7 +31,10 @@ export class DoctorDto {
         this.state=state;
         this.city=city;
         this.email=email;
+        this.fromDay=fromDay;
+        this.toDay=toDay;
         this.chargePerVisit=chargePerVisit;
+        
     }
 
 }

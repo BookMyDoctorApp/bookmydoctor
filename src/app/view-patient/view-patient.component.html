@@ -1,4 +1,4 @@
-<table>
+<!--table>
     <tr>
         <td>
             <button (click)="getAllPatients()">Load Patients</button> 
@@ -13,4 +13,20 @@
             </div>
         </td>
     </tr>
-</table>
+</table-->
+
+
+<div class="card" style="width: 18rem;">
+    <button (click)="getAllPatients()">Load Patients</button><hr/>
+    <!--img class="card-img-top" src="..." alt="Card image cap"-->
+    <div class="card-body">
+    <div *ngFor="let patient of allPatients">
+      <h5 class="card-title">{{patient.patientName}}</h5>
+      <div>Id. {{patient.patientId}}</div>
+        <div>PatientCity.{{patient.patientCity}}</div>
+        <div>PatientAge.{{patient.patientAge}}</div>
+        <div>PatientGender.{{patient.patientGender}}</div> 
+        <div>PatientDisease.{{patient.patientDisease}}</div>
+        </div>
+    </div>
+  </div>

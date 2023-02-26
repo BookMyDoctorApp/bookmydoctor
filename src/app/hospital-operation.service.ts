@@ -6,6 +6,7 @@ import { HospitalDTO } from './hospital-dto';
 import { DoctorDto } from './doctor-dto';
 import { PatientDTO } from './patient-dto';
 import { AppointmentDTO } from './appointment-dto';
+import { FeedbackDTO } from './feedback-dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +26,9 @@ export class HospitalOperationService {
   viewAppointmentEndPoint:string=this.baseURL+'/appointment/list';
   addHospitalEndPoint:string=this.baseURL+'/hospital/add';
   getAllDoctorsbyHospitalEndPoint:string=this.baseURL+'/hospital/allDoctors/id';
-  
+  addDoctorEndPoint:string=this.baseURL+'/doctor/register';
+  feedbackByDoctorNameEndPoint:string=this.baseURL+'/feedback/doctor';
+
   //localhost:8080/hospital/id/2c
   //localhost:8080/hospital/list
   //localhost:8080/hospital/city/Pune
@@ -33,6 +36,7 @@ export class HospitalOperationService {
   //localhost:8080/doctor/list
  // localhost:8080/hospital/add
  //localhost:8080/hospital/allDoctors/id/2
+ //localhost:8080/doctor/{doctorId}
 
   constructor(private http:HttpClient)
   { 
@@ -79,14 +83,6 @@ export class HospitalOperationService {
     console.log("inside service : "+this.allPatientEndPoint);
     return this.http.get<PatientDTO[]>(`${this.allPatientEndPoint}`);
   }
-/*
-  addHospital(hospitalFromUser:Hospital){
-    this.hospitalArr.push(hospitalFromUser);
-
-    console.log("Inside Hospital Service : Hospital Added " + hospitalFromUser.hospitalId);
-     console.log(" Total Hospital Are :- " + this.hospitalArr.length);
-  }
-  */
 
   getAllAppointments():Observable<AppointmentDTO[]>
   {
@@ -107,4 +103,18 @@ export class HospitalOperationService {
   
       return this.http.get<DoctorDto[]>(`${this.getAllDoctorsbyHospitalEndPoint}`);
     }
+
+    addDoctor():Observable<DoctorDto[]>{
+    console.log("inside service : "+this.addDoctorEndPoint);
+    return this.http.get<DoctorDto[]>(`${this.addDoctorEndPoint}`);
+    }
+
+    getFeedbackByDoctorName(doctorName:string):Observable<FeedbackDTO[]>{
+      console.log("Inside method 1"+this.feedbackByDoctorNameEndPoint);
+      this.feedbackByDoctorNameEndPoint=this.feedbackByDoctorNameEndPoint+'/'+doctorName;
+      console.log("After getting feedback"+this.feedbackByDoctorNameEndPoint);
+  
+      return this.http.get<FeedbackDTO[]>(`${this.feedbackByDoctorNameEndPoint}`);
+    }
+    
 }

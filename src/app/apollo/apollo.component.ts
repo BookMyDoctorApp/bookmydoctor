@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DoctorDto } from '../doctor-dto';
 import { HospitalOperationService } from '../hospital-operation.service';
 
@@ -10,7 +11,7 @@ import { HospitalOperationService } from '../hospital-operation.service';
 export class ApolloComponent {
 
   doctor:DoctorDto[]=[];
-  constructor(private hospitalService: HospitalOperationService){
+  constructor(private hospitalService: HospitalOperationService, private router:Router){
 
   }
 
@@ -26,5 +27,9 @@ export class ApolloComponent {
 
       }
     );
+  }
+
+  moveToAFeedback(){
+    this.router.navigate(['feedback']);
   }
 }

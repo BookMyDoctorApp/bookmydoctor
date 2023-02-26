@@ -14,8 +14,18 @@
             
     <br/>
             <p>Enter City</p>
-            <input type="text" #searchCity>
-            <button (click)="getHospitalsByCity(searchCity.value)">Load Hospital</button> 
+            <select #cityName (change)="getHospitalsByCity(cityName.value)">
+                <option value="" disabled selected>Search</option>
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option >Nashik</option>
+                <option >Dhule</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Banglore">Banglore</option>
+                <option value="Chennai">Chennai</option>
+            </select>
+
+            
             
             <hr/>
             
@@ -24,26 +34,34 @@
             <input type="text" #searchState>
             <button (click)="getHospitalsByState(searchState.value)">Load Hospital</button> 
             -->
+        
+           
+            <!--div>State: {{hospital.state}}</div>
+            <div>City: {{hospital.city}}</div>
+            <div>Address: {{hospital.address}}</div>
+            <div>HospitalRating: {{hospital.hospitalRating}}</div-->
+            <!--button (click)="viewHospital(hospital.hospitalId, hospital.hospitalName, hospital.hospitalRating, hospital.address )">View Hospital</button-->      
             
             <div *ngFor="let hospital of allHospital">
-                <table>
+                <!--table>
               <tr>
                 <td> <img src="/assets/images/{{hospital.imageName}}" width="90px" height="100px"></td> 
        
-        <td>
-            <div>HospitalName: {{hospital.hospitalName}}
-                <button (click)="moveToApollo()">View Hospital</button>
-            </div>
-
-           
-            <div>State: {{hospital.state}}</div>
+            <td-->
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/assets/images/{{hospital.imageName}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><div style="color: blue;">
+                    <a (click)="moveToApollo()"><u>{{hospital.hospitalName}}</u></a>
+                </div></h5>
+                  <div>State: {{hospital.state}}</div>
             <div>City: {{hospital.city}}</div>
             <div>Address: {{hospital.address}}</div>
             <div>HospitalRating: {{hospital.hospitalRating}}</div>
-            <!--button (click)="viewHospital(hospital.hospitalId, hospital.hospitalName, hospital.hospitalRating, hospital.address )">View Hospital</button-->                 
-        </td>
-        </tr>
-</table>
+                  <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+                </div>
+              </div>
+  
         <hr/>
             </div>
         
